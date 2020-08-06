@@ -1,0 +1,67 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Conn_01x01_Male-FieldDevice_Power_5V-rescue
+#
+DEF Conn_01x01_Male-FieldDevice_Power_5V-rescue J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Conn_01x01_Male-FieldDevice_Power_5V-rescue" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+$ENDFPLIST
+DRAW
+S 34 5 0 -5 1 1 6 F
+P 2 1 1 6 50 0 34 0 N
+X Pin_1 1 200 0 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Conn_01x02_Male-FieldDevice_Power_5V-rescue
+#
+DEF Conn_01x02_Male-FieldDevice_Power_5V-rescue J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Conn_01x02_Male-FieldDevice_Power_5V-rescue" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+$ENDFPLIST
+DRAW
+S 34 -95 0 -105 1 1 6 F
+S 34 5 0 -5 1 1 6 F
+P 2 1 1 6 50 -100 34 -100 N
+P 2 1 1 6 50 0 34 0 N
+X Pin_1 1 200 0 150 L 50 50 1 1 P
+X Pin_2 2 200 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# TPS54232-FieldDevice_Power_5V
+#
+DEF TPS54232-FieldDevice_Power_5V U 0 40 Y Y 1 F N
+F0 "U" 300 -700 60 H V C CNN
+F1 "TPS54232-FieldDevice_Power_5V" 0 0 60 H V C CNN
+F2 "" 0 50 60 H I C CNN
+F3 "" 0 50 60 H I C CNN
+DRAW
+S -500 500 500 -650 0 1 0 f
+X BOOT 1 700 250 200 L 50 50 1 1 I
+X VIN 2 -700 400 200 R 50 50 1 1 I
+X EN 3 -700 100 200 R 50 50 1 1 I
+X SS 4 -700 -350 200 R 50 50 1 1 I
+X VSENSE 5 700 -350 200 L 50 50 1 1 I
+X COMP 6 -700 -150 200 R 50 50 1 1 I
+X GND 7 0 -850 200 U 50 50 1 1 I
+X PH 8 700 100 200 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library

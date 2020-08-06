@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 1 1
+Sheet 1 3
 Title "Field Device R3"
 Date ""
 Rev "1.0"
@@ -13,4 +13,413 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Sheet
+S 2100 2450 1550 600 
+U 5F21BAEC
+F0 "Power" 50
+F1 "Power.sch" 50
+F2 "Vin" I L 2100 2600 50 
+F3 "5V_Out" I R 3650 2650 50 
+F4 "3V3_Vcc" I R 3650 2850 50 
+$EndSheet
+$Sheet
+S 5700 2450 1300 750 
+U 5F21BB69
+F0 "Control" 50
+F1 "Controlsch.sch" 50
+F2 "3V3_Vcc" I L 5700 2550 50 
+$EndSheet
+Text Notes 5950 2950 0    100  ~ 0
+ATTiny1607 \nDS7505\n
+Text Notes 2450 2750 0    100  ~ 0
+TPS54232
+$Comp
+L FieldDevice_Power_5V-rescue:Conn_01x02_Male-FieldDevice_Power_5V-rescue J?
+U 1 1 5F273CF5
+P 1450 2600
+AR Path="/5F21BAEC/5F273CF5" Ref="J?"  Part="1" 
+AR Path="/5F273CF5" Ref="J?"  Part="1" 
+F 0 "J?" H 1450 2700 50  0000 C CNN
+F 1 "V in 6-18V" H 1150 2550 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x02_Pitch2.54mm" H 1450 2600 50  0001 C CNN
+F 3 "" H 1450 2600 50  0001 C CNN
+F 4 "Value" H 1450 2600 60  0001 C CNN "Link"
+F 5 "V in 6-18V" H 1100 2550 60  0001 C CNN "Comp_Name"
+	1    1450 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F273CFB
+P 1750 3150
+AR Path="/5F21BAEC/5F273CFB" Ref="#PWR?"  Part="1" 
+AR Path="/5F273CFB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1750 2900 50  0001 C CNN
+F 1 "GND" H 1750 3000 50  0000 C CNN
+F 2 "" H 1750 3150 50  0001 C CNN
+F 3 "" H 1750 3150 50  0001 C CNN
+	1    1750 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 2700 1750 2700
+Wire Wire Line
+	1750 2700 1750 3150
+Wire Wire Line
+	2100 2600 1650 2600
+Wire Wire Line
+	3650 2650 4200 2650
+Text Label 4200 2650 0    50   ~ 0
+5_Vss
+Wire Wire Line
+	3650 2850 4200 2850
+Text Label 4200 2850 0    50   ~ 0
+3V3_Vcc
+Wire Wire Line
+	5700 2550 5300 2550
+Text Label 5300 2550 0    50   ~ 0
+3V3_Vcc
+Text Label 7800 7150 0    50   ~ 0
+3V3_Vcc
+$Comp
+L Analog_ADC:INA219AxD U?
+U 1 1 5F2D6DC8
+P 2600 8150
+AR Path="/5F21BB38/5F2D6DC8" Ref="U?"  Part="1" 
+AR Path="/5F2D6DC8" Ref="U?"  Part="1" 
+F 0 "U?" H 2350 8500 50  0000 C CNN
+F 1 "INA219AxD" H 2900 8500 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 3400 7800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ina219.pdf" H 2950 8050 50  0001 C CNN
+	1    2600 8150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 8550 2600 8850
+$Comp
+L power:GND #PWR?
+U 1 1 5F2D6DCF
+P 2600 8850
+AR Path="/5F21BB38/5F2D6DCF" Ref="#PWR?"  Part="1" 
+AR Path="/5F2D6DCF" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2600 8600 50  0001 C CNN
+F 1 "GND" H 2605 8677 50  0000 C CNN
+F 2 "" H 2600 8850 50  0001 C CNN
+F 3 "" H 2600 8850 50  0001 C CNN
+	1    2600 8850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 7750 2600 7200
+Wire Wire Line
+	2600 7200 2100 7200
+$Comp
+L Device:C C?
+U 1 1 5F2D6DD8
+P 2100 7400
+AR Path="/5F21BB38/5F2D6DD8" Ref="C?"  Part="1" 
+AR Path="/5F2D6DD8" Ref="C?"  Part="1" 
+F 0 "C?" H 2215 7446 50  0000 L CNN
+F 1 "C" H 2215 7355 50  0000 L CNN
+F 2 "" H 2138 7250 50  0001 C CNN
+F 3 "~" H 2100 7400 50  0001 C CNN
+	1    2100 7400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 7200 2100 7250
+Wire Wire Line
+	2100 7550 2100 7650
+Connection ~ 2100 7200
+Wire Wire Line
+	2100 7200 1450 7200
+$Comp
+L power:GND #PWR?
+U 1 1 5F2D6DE2
+P 2100 7650
+AR Path="/5F21BB38/5F2D6DE2" Ref="#PWR?"  Part="1" 
+AR Path="/5F2D6DE2" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2100 7400 50  0001 C CNN
+F 1 "GND" H 2105 7477 50  0000 C CNN
+F 2 "" H 2100 7650 50  0001 C CNN
+F 3 "" H 2100 7650 50  0001 C CNN
+	1    2100 7650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 7950 3650 7950
+Wire Wire Line
+	3000 8050 3650 8050
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 5F2D6DEC
+P 3200 8550
+AR Path="/5F21BB38/5F2D6DEC" Ref="JP?"  Part="1" 
+AR Path="/5F2D6DEC" Ref="JP?"  Part="1" 
+F 0 "JP?" V 3200 8618 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 3245 8618 50  0001 L CNN
+F 2 "" H 3200 8550 50  0001 C CNN
+F 3 "~" H 3200 8550 50  0001 C CNN
+	1    3200 8550
+	0    1    1    0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 5F2D6DF2
+P 3500 8550
+AR Path="/5F21BB38/5F2D6DF2" Ref="JP?"  Part="1" 
+AR Path="/5F2D6DF2" Ref="JP?"  Part="1" 
+F 0 "JP?" V 3500 8618 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 3545 8618 50  0001 L CNN
+F 2 "" H 3500 8550 50  0001 C CNN
+F 3 "~" H 3500 8550 50  0001 C CNN
+	1    3500 8550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F2D6DF8
+P 3050 8900
+AR Path="/5F21BB38/5F2D6DF8" Ref="#PWR?"  Part="1" 
+AR Path="/5F2D6DF8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3050 8650 50  0001 C CNN
+F 1 "GND" H 3055 8727 50  0000 C CNN
+F 2 "" H 3050 8900 50  0001 C CNN
+F 3 "" H 3050 8900 50  0001 C CNN
+	1    3050 8900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 8350 3200 8350
+Wire Wire Line
+	3200 8350 3200 8400
+Wire Wire Line
+	3200 8750 3050 8750
+Wire Wire Line
+	3050 8750 3050 8900
+Wire Wire Line
+	3200 8700 3200 8750
+Wire Wire Line
+	3000 8250 3500 8250
+Wire Wire Line
+	3500 8250 3500 8400
+Wire Wire Line
+	3500 8750 3200 8750
+Wire Wire Line
+	3500 8700 3500 8750
+Connection ~ 3200 8750
+Wire Wire Line
+	2200 8050 1800 8050
+Wire Wire Line
+	2200 8250 1800 8250
+Text Notes 4050 9700 0    50   ~ 0
+ A1    A2   Address\n——————————————\nGND  GND  1000000\nGND  VS+  1000001\nGND  SDA  1000010\nGND  SCL  1000011\nVS+  GND  1000100\nVS+  VS+  1000101\nVS+  SDA  1000110\nVS+  SCL  1000111\nSDA  GND  1001000\nSDA  VS+  1001001\nSDA  SDA  1001010\nSDA  SCL  1001011\nSCL  GND  1001100\nSCL  VS+  1001101\nSCL  SDA  1001110\nSCL  SCL  1001111
+Text Label 3650 8050 2    50   ~ 0
+SCL
+Text Label 3650 7950 2    50   ~ 0
+SDA
+Text Label 1450 7200 0    50   ~ 0
+3V3_Vcc
+$Comp
+L Connector:Conn_01x01_Female J?
+U 1 1 5F27CA6F
+P 1600 8250
+F 0 "J?" H 1628 8276 50  0000 L CNN
+F 1 "Vin-" H 1628 8185 50  0000 L CNN
+F 2 "" H 1600 8250 50  0001 C CNN
+F 3 "~" H 1600 8250 50  0001 C CNN
+	1    1600 8250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J?
+U 1 1 5F27B9E4
+P 1600 8050
+F 0 "J?" H 1628 8076 50  0000 L CNN
+F 1 "Vin+" H 1628 7985 50  0000 L CNN
+F 2 "" H 1600 8050 50  0001 C CNN
+F 3 "~" H 1600 8050 50  0001 C CNN
+	1    1600 8050
+	-1   0    0    -1  
+$EndComp
+Wire Notes Line
+	800  6350 800  10700
+Wire Notes Line
+	800  10700 6400 10700
+Wire Notes Line
+	6400 10700 6400 6350
+Wire Notes Line
+	6400 6350 800  6350
+Text Notes 900  6750 0    200  ~ 0
+Sensor
+$Comp
+L FieldDevice_R3_Symbols:DIGI_XBEE-XBee-Adapter H?
+U 1 1 5F2E9CD0
+P 9700 8500
+AR Path="/5F21BBDC/5F2E9CD0" Ref="H?"  Part="1" 
+AR Path="/5F2E9CD0" Ref="H?"  Part="1" 
+F 0 "H?" H 8900 9450 60  0000 C CNN
+F 1 "DIGI_XBEE-XBee-Adapter" H 10500 9450 60  0000 C CNN
+F 2 "" H 9050 8300 60  0000 C CNN
+F 3 "" H 9050 8300 60  0000 C CNN
+	1    9700 8500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 7450 9700 7150
+Wire Wire Line
+	9700 7150 8300 7150
+Wire Wire Line
+	9700 9500 9700 9800
+$Comp
+L power:GND #PWR?
+U 1 1 5F2E9CDA
+P 9700 9800
+AR Path="/5F21BBDC/5F2E9CDA" Ref="#PWR?"  Part="1" 
+AR Path="/5F2E9CDA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 9550 50  0001 C CNN
+F 1 "GND" H 9705 9627 50  0000 C CNN
+F 2 "" H 9700 9800 50  0001 C CNN
+F 3 "" H 9700 9800 50  0001 C CNN
+	1    9700 9800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5F2E9CE0
+P 8300 7500
+AR Path="/5F21BBDC/5F2E9CE0" Ref="C?"  Part="1" 
+AR Path="/5F2E9CE0" Ref="C?"  Part="1" 
+F 0 "C?" H 8415 7546 50  0000 L CNN
+F 1 "100nF" H 8415 7455 50  0000 L CNN
+F 2 "" H 8338 7350 50  0001 C CNN
+F 3 "~" H 8300 7500 50  0001 C CNN
+	1    8300 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 7150 8300 7350
+Wire Wire Line
+	8300 7650 8300 7800
+Connection ~ 8300 7150
+Wire Wire Line
+	8300 7150 7800 7150
+$Comp
+L power:GND #PWR?
+U 1 1 5F2E9CEA
+P 8300 7800
+AR Path="/5F21BBDC/5F2E9CEA" Ref="#PWR?"  Part="1" 
+AR Path="/5F2E9CEA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8300 7550 50  0001 C CNN
+F 1 "GND" H 8305 7627 50  0000 C CNN
+F 2 "" H 8300 7800 50  0001 C CNN
+F 3 "" H 8300 7800 50  0001 C CNN
+	1    8300 7800
+	1    0    0    -1  
+$EndComp
+Text Notes 7750 6600 0    200  ~ 0
+Telemetry
+$Comp
+L FieldDevice_R3_Symbols:EA_DOGS104x-A U?
+U 1 1 5F2F0B8A
+P 14050 2400
+F 0 "U?" H 14025 3237 60  0000 C CNN
+F 1 "EA_DOGS104x-A" H 14025 3131 60  0000 C CNN
+F 2 "" H 14100 2400 60  0001 C CNN
+F 3 "" H 14100 2400 60  0001 C CNN
+	1    14050 2400
+	1    0    0    -1  
+$EndComp
+Text Notes 13400 1100 0    200  ~ 0
+Display
+Wire Wire Line
+	13400 2200 13100 2200
+Wire Wire Line
+	13100 2200 13100 2000
+Wire Wire Line
+	13100 2000 13400 2000
+Wire Wire Line
+	13100 2000 12850 2000
+Connection ~ 13100 2000
+Text Label 12350 2000 0    50   ~ 0
+3V3_Vcc
+$Comp
+L Device:C C?
+U 1 1 5F300DA6
+P 12850 2200
+AR Path="/5F21BBDC/5F300DA6" Ref="C?"  Part="1" 
+AR Path="/5F300DA6" Ref="C?"  Part="1" 
+F 0 "C?" H 12600 2250 50  0000 L CNN
+F 1 "1 µF 16V" H 12350 2150 50  0000 L CNN
+F 2 "" H 12888 2050 50  0001 C CNN
+F 3 "~" H 12850 2200 50  0001 C CNN
+	1    12850 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12850 2000 12850 2050
+Wire Wire Line
+	12850 2350 12850 2400
+Connection ~ 12850 2000
+Wire Wire Line
+	12850 2000 12350 2000
+Wire Wire Line
+	13400 2400 12850 2400
+Connection ~ 12850 2400
+$Comp
+L Device:C C?
+U 1 1 5F305F02
+P 13100 2950
+AR Path="/5F21BBDC/5F305F02" Ref="C?"  Part="1" 
+AR Path="/5F305F02" Ref="C?"  Part="1" 
+F 0 "C?" H 13215 2996 50  0000 L CNN
+F 1 "1 µF 16V" H 13215 2905 50  0000 L CNN
+F 2 "" H 13138 2800 50  0001 C CNN
+F 3 "~" H 13100 2950 50  0001 C CNN
+	1    13100 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13400 2600 13100 2600
+Wire Wire Line
+	13100 2600 13100 2800
+Wire Wire Line
+	13100 3100 13100 3500
+Wire Wire Line
+	12850 3500 12950 3500
+Wire Wire Line
+	12850 2400 12850 3500
+Wire Wire Line
+	13100 3500 13750 3500
+Wire Wire Line
+	13750 3500 13750 3250
+Connection ~ 13100 3500
+$Comp
+L power:GND #PWR?
+U 1 1 5F3097E1
+P 12950 3650
+AR Path="/5F21BBDC/5F3097E1" Ref="#PWR?"  Part="1" 
+AR Path="/5F3097E1" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12950 3400 50  0001 C CNN
+F 1 "GND" H 12955 3477 50  0000 C CNN
+F 2 "" H 12950 3650 50  0001 C CNN
+F 3 "" H 12950 3650 50  0001 C CNN
+	1    12950 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12950 3500 12950 3650
+Connection ~ 12950 3500
+Wire Wire Line
+	12950 3500 13100 3500
+Wire Wire Line
+	14650 2500 15100 2500
+Wire Wire Line
+	14650 2300 15100 2300
+Wire Wire Line
+	14650 2200 15100 2200
+Wire Wire Line
+	14650 2100 15100 2100
+Wire Wire Line
+	14650 2000 15100 2000
 $EndSCHEMATC
