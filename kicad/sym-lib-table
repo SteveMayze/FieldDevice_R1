@@ -1,6 +1,6 @@
 (sym_lib_table
   (lib (name FieldDevice_Power_5V-rescue)(type Legacy)(uri ${KIPRJMOD}/FieldDevice_Power_5V-rescue.lib)(options "")(descr ""))
-  (lib (name XBee-Adapter)(type Legacy)(uri /Users/steve/Documents/PCBs/XBee-Adaptor/kicad/lib/XBee-Adapter.lib)(options "")(descr ""))
-  (lib (name DisplayAdapter_DOGS104_symbols)(type Legacy)(uri /Users/steve/Documents/PCBs/DisplayAdapter_DOGS104/pcb/lib/DisplayAdapter_DOGS104_symbols.lib)(options "")(descr ""))
+  (lib (name XBee-Adapter)(type Legacy)(uri ${LOCAL_PCBS}/XBee-Adapter/kicad/lib/XBee-Adapter.lib)(options "")(descr ""))
+  (lib (name DisplayAdapter_DOGS104_symbols)(type Legacy)(uri ${LOCAL_PCBS}/DisplayAdapter_DOGS104/pcb/lib/DisplayAdapter_DOGS104_symbols.lib)(options "")(descr ""))
   (lib (name FieldDevice_R3_Symbols)(type Legacy)(uri ${KIPRJMOD}/lib/FieldDevice_R3_Symbols.lib)(options "")(descr ""))
 )
