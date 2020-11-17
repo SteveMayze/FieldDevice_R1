@@ -621,4 +621,6 @@ Text Notes 9300 2750 0    197  ~ 0
 User Interface
 Text Notes 11200 3100 0    118  ~ 0
 Input
+Text Notes 12850 4700 0    50   ~ 0
+Can equally \nbe a 1μF
 $EndSCHEMATC
