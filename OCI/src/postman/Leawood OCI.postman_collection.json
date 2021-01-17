@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "99e7ad8d-dbda-4fb3-867d-d268eaed50d6",
+		"name": "Leawood OCI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Alert Log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/alert_log",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"alert_log"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/data_points",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"data_points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Devices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/devices?serial_id=B7FD8925DDF26551E0539410000A6F44",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"devices"
+					],
+					"query": [
+						{
+							"key": "serial_id",
+							"value": "B7FD8925DDF26551E0539410000A6F44"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Data Definitions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/data_definitions?name=Bus Voltage",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"data_definitions"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Bus Voltage"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Alert Log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"device_id\": \"244566011418928721982045870923786637920\",\r\n    \"message\": \"This is a test\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/alert_log",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"alert_log"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Data Point",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"device_id\": \"244566011418928721982045870923786637920\",\r\n    \"data_def_id\": \"244566058579486474234307639144054654019\",\r\n    \"data_value\": 12.1\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/data_point",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"data_point"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{rest-pwd}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{rest-user}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
