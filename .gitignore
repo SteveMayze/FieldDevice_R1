@@ -208,3 +208,7 @@ venv
 virtualenv
 
 *.ods#
+
+
+.ssh
+

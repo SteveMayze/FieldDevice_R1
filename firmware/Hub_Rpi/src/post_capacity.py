@@ -34,7 +34,7 @@ def httpPost(resource, payload):
 
 
 ## Get the device details
-query = { "serial_id": {"$eq":"0013A20041AE49D4"}}
+query = { "serial_id": {"$eq":"0013A200415D58CB"}}
 data = httpGet("devices", JSONEncoder().encode(query))
 deviceId = data['device_id']
 print (f'Device ID: {deviceId}')
