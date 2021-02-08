@@ -209,8 +209,14 @@ cython_debug/
 venv
 virtualenv
 
+# Projct related
+**/hub/bin/
+**/hub/include/
+**/hub/lib/
+
 *.ods#
 
+.vscode/
 
 .ssh
 
