@@ -7,10 +7,9 @@ import json
 from json import JSONEncoder
 import requests
 from requests.auth import HTTPBasicAuth
-import leawood.config
+from leawood.config import Config
 
-
-config = leawood.config.Config()
+config = Config()
 log = config.getLogger("subscribe_and_post")
 
 def httpGet(resource, query):

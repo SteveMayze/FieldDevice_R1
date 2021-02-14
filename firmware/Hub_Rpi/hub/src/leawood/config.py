@@ -31,6 +31,7 @@ class Config:
         parser.add_argument('-k', '--clientkey', metavar='clientkey', required=False, dest='clientkey', action='store', help='The name of the client key file')
         parser.add_argument('-m', '--mqttserver', metavar='mqttserver', required=False, dest='mqttserver', action='store', help='The IP address of the MQTT server')
         parser.add_argument('-p', '--mqttport', metavar='mqttport', required=False, dest='mqttport', action='store', help='The port for the MQTT sever')
+        parser.add_argument('-f', '--file', metavar='file', required=False, dest='file', action='store', help='The port for the MQTT sever')
         args = parser.parse_args()
         return args
 
@@ -95,11 +96,16 @@ class Config:
             self.log.debug( f'MQTT server port: {args.mqttport}')
             config_data['mqttport'] = args.mqttport
 
+        if args.file != None:
+            self.log.debug( f'Payload file: {args.file}')
+            config_data['file'] = args.file
+
         self.log.debug(f'config_data: {config_data}')
         return config_data
 
     def __init__(self):
         self.log = logging.getLogger('config')
-
+        self.subscribe_topic = 'power/sensor/+/data'
+        self.publish_topic = 'power/sensor/0013A20041629BFB/data'
         self.config_data = self.handle_config(self.parse_args() )
         self.debug = self.config_data["debug"]
