@@ -1,7 +1,14 @@
 import paho.mqtt.client as mqtt
-from config import Config
+from leawood.config import Config
 import json
 import os
+import logging
+
+import requests
+from json import JSONEncoder
+
+
+
 
 class LW_MQTT:
 
@@ -9,11 +16,14 @@ class LW_MQTT:
         self.config = config
         self.log = config.getLogger("mqtt")
         self.client = mqtt.Client(protocol=mqtt.MQTTv311)
+
         self.client.tls_set(
             ca_certs = os.path.join(config.config_data['certpath'], config.config_data['cacert']), 
             certfile= os.path.join(config.config_data['certpath'], config.config_data['clientcrt']), 
             keyfile= os.path.join(config.config_data['certpath'], config.config_data['clientkey'])
             )
+
+ 
 
     def publish(self, topic, payload):
         config = self.config
@@ -27,3 +37,13 @@ class LW_MQTT:
         self.client.disconnect
 
 
+    def __enter__(self): 
+        config = self.config
+        self.log.info("Connecting")
+        self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
+        return self.client
+  
+    def __exit__(self, exc_type, exc_value, traceback):
+        # self.log.info(f'exec_type: {exec_type}, exec_value: {exec_value}, traceback: {traceback}') 
+        self.log.info("Disconnecting")
+        self.client.disconnect
