@@ -1,13 +1,9 @@
 from leawood.config import Config
+from leawood.lwmqtt import Publisher
 import json
-import os
-import paho.mqtt.client as mqtt
-from leawood.lwmqtt import LW_MQTT
 
 config = Config()
 log = config.getLogger("receive_and_publish")
-
-
 
 
 if __name__ == "__main__":
@@ -17,11 +13,8 @@ if __name__ == "__main__":
         payload = json.load(f)
     log.info(f"Publishing {payload}")
 
-    with LW_MQTT(config) as mqtt:
+    with Publisher(config) as mqtt:
         mqtt.publish (
             topic = config.publish_topic,
             payload = json.dumps(payload)
         )
-
-
-
