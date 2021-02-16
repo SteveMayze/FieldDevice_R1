@@ -35,7 +35,10 @@ class Rest:
         }
         url = f'{base_url}/{resource}'
         log.info (f'POST {url}\n   payload: {payload}\n user {config.config_data["username"]}, pwd: {config.config_data["password"]}')
-        return requests.request("POST", url, headers=headers, data=payload, timeout=30, auth=HTTPBasicAuth(config.config_data['username'], config.config_data['password']))
+        return requests.request(
+            "POST", url, headers=headers, data=payload, timeout=30, 
+            auth=HTTPBasicAuth(config.config_data['username'], config.config_data['password'])
+        )
 
 
         

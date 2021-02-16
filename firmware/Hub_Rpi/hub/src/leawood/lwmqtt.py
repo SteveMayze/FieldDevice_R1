@@ -30,6 +30,7 @@ class Subscriber:
     def __init__(self, config):
         self.config = config
         self.log = config.getLogger('lwmqtt.Subscriber')
+        self.log.info(f'Initialising the Subscriber')
         self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
         self.client.on_connect = on_connect
         self.client.on_subscribe = on_subscribe
@@ -52,6 +53,18 @@ class Subscriber:
         self.log.info("Disconnecting")
         self.client.disconnect
 
+    def start(self):
+        config = self.config
+        self.log.info("Starting the subscriber")
+        self.log.info(f"Connecting host={config.config_data['mqttserver']}, port={int(config.config_data['mqttport'])}")
+        self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
+        self.client.loop_start()
+
+
+    def stop(self):
+        self.log.info("Stopping the subscriber")
+        self.client.loop_stop()
+
 
 
 ##
@@ -60,6 +73,7 @@ class Publisher:
     def __init__(self, config):
         self.config = config
         self.log = config.getLogger("lwmqtt.Publisher")
+        self.log.info(f'Initialising the Publisher')
         self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
         self.client.tls_set(
             ca_certs = os.path.join(config.config_data['certpath'], config.config_data['cacert']), 
@@ -69,7 +83,7 @@ class Publisher:
 
     def __enter__(self): 
         config = self.config
-        self.log.info("Connecting")
+        self.log.info(f"Connecting host={config.config_data['mqttserver']}, port={int(config.config_data['mqttport'])}")
         self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
         return self.client
   
@@ -82,23 +96,12 @@ class Publisher:
 
     def publish(self, topic, payload):
         config = self.config
-        self.log.info("Connecting")
+        self.log.info(f"Connecting host={config.config_data['mqttserver']}, port={int(config.config_data['mqttport'])}")
         self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
         self.log.info(f"Publishing {payload}")
         self.client.publish(
             topic = self.config.publish_topic,
-            payload = json.dumps(payload)
+            payload = payload
         )
-        self.client.disconnect
+        # self.client.disconnect
 
-
-    def __enter__(self): 
-        config = self.config
-        self.log.info("Connecting")
-        self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
-        return self.client
-  
-    def __exit__(self, exc_type, exc_value, traceback):
-        # self.log.info(f'exec_type: {exec_type}, exec_value: {exec_value}, traceback: {traceback}') 
-        self.log.info("Disconnecting")
-        self.client.disconnect
