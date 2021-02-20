@@ -18,7 +18,7 @@ class Config:
             log.setLevel(logging.INFO)
         return log
 
-    def parse_args(self ):
+    def parse_args(self, args):
         parser = argparse.ArgumentParser(description="List and download the artifact metadata. kubectl port-forward $deploy_pod 9000:9000")
         parser.add_argument('-c', '--config', metavar='config_file', required=False, dest='config', action='store', help='The configuration file containing the common arguments')
         parser.add_argument('-v', '--verbose', required=False, dest='debug', action='store_true', help='Enable debug mode')
@@ -32,8 +32,10 @@ class Config:
         parser.add_argument('-m', '--mqttserver', metavar='mqttserver', required=False, dest='mqttserver', action='store', help='The IP address of the MQTT server')
         parser.add_argument('-p', '--mqttport', metavar='mqttport', required=False, dest='mqttport', action='store', help='The port for the MQTT sever')
         parser.add_argument('-f', '--file', metavar='file', required=False, dest='file', action='store', help='The port for the MQTT sever')
-        args = parser.parse_args()
-        return args
+        parser.add_argument('-s', '--serial-port', metavar='serial-port', required=False, dest='serialport', action='store', help='The serial port for the XBee module')
+        parser.add_argument('-b', '--baud', metavar='baud', required=False, dest='baud', action='store', help='The baud rate for the XBee module')
+        parsed_args = parser.parse_args(args)
+        return parsed_args
 
 
     def handle_config(self, args):
@@ -100,12 +102,20 @@ class Config:
             self.log.debug( f'Payload file: {args.file}')
             config_data['file'] = args.file
 
+        if args.serialport != None:
+            self.log.debug( f'Serial Port: {args.serialport}')
+            config_data['serial-port'] = args.serialport
+
+        if args.baud != None:
+            self.log.debug( f'Baud Rate: {args.baud}')
+            config_data['serial-baud'] = args.baud
+
         self.log.debug(f'config_data: {config_data}')
         return config_data
 
-    def __init__(self):
+    def __init__(self, args):
         self.log = logging.getLogger('config')
         self.subscribe_topic = 'power/sensor/+/data'
         self.publish_topic = 'power/sensor/0013A20041629BFB/data'
-        self.config_data = self.handle_config(self.parse_args() )
+        self.config_data = self.handle_config(self.parse_args(args=args) )
         self.debug = self.config_data["debug"]

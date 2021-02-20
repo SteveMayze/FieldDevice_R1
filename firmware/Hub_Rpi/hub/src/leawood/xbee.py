@@ -1,10 +1,18 @@
+
+from digi.xbee.devices import XBeeDevice
+
 class XBEE:
     def __init__(self):
         pass
 
 class Receiver:
     def __init__(self, config):
-        config = config
+        self.config = config
+        self.log = config.getLogger("Receiver")
 
     def start(self):
-        pass
+        config = self.config
+        com = config.config_data['serial-port']
+        baud = int(config.config_data['serial-baud'])
+        device = XBeeDevice(com, baud)
+        device.open()

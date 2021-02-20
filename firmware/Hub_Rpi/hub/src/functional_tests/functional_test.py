@@ -1,6 +1,16 @@
 
 from leawood.config import Config
 from leawood.xbee import Receiver
+from unittest.mock import patch
+
+import pytest
+
+@pytest.fixture
+def config():
+    args = ["--serial-port", "COM1", "--baud", "9600"]
+    return Config(args)
+
+
 
 class TestBasic:
     
@@ -13,8 +23,9 @@ class TestBasic:
     ##      2. The actual logic is quite simple but the problem 
     ##         is with the dependent resouces.
 
-    def test_receiver_is_started(self):
-        config = Config()
+
+    @patch('leawood.xbee.XBeeDevice')
+    def test_receiver_is_started(self, xbee_mock, config):
         receiver = Receiver(config)
         receiver.start()
 
