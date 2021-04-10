@@ -1,8 +1,9 @@
 from leawood.config import Config
 from leawood.lwmqtt import Publisher
 import json
+import sys
 
-config = Config()
+config = Config(sys.argv[1:])
 log = config.getLogger("receive_and_publish")
 
 

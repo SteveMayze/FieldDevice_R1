@@ -2,8 +2,9 @@
 # from config import *
 from leawood.lwmqtt import Subscriber
 from leawood.config import Config
+import sys
 
-config = Config()
+config = Config(sys.argv[1:])
 log = config.getLogger("subscribe_and_post")
 
 

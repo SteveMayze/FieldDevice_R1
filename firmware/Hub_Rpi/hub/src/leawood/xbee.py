@@ -1,6 +1,4 @@
 
-# from digi.xbee.devices import XBeeDevice
-# from digi.xbee.devices import XBeeNetwork
 from  digi.xbee import devices
 
 import time

@@ -8,7 +8,7 @@ import pytest
 
 @pytest.fixture
 def config():
-    args = ["--serial-port", "COM1", "--baud", "9600"]
+    args = ["--serial-port", "loop://", "--baud", "9600"]
     return Config(args)
 
 
