@@ -59,7 +59,7 @@ for node in nodes:
     if deviceId:
         device["device-id"] = data['device_id']
         devices.append(device)
-
+self.log.info(f'Network: {devices}')
 
 # Done LED on - Print XBee data
 xbee.close()
