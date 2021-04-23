@@ -41,3 +41,35 @@ python -m pytest
 export XBEE_PORT=/dev/ttyUSB0
 python -m pytest
 
+
+Request for Data - Specific module.
+'''
+RX (Receive) Packet 16-bit Address (API 2)
+
+7E 00 0D 81 01 0A 7D 33 00 44 41 54 41 5F 52 45 51 FF
+
+Start delimiter: 7E
+Length: 00 0D (13)
+Frame type: 81 (RX (Receive) Packet 16-bit Address)
+16-bit source address: 01 0A
+RSSI: 13
+Options: 00
+RF data: 44 41 54 41 5F 52 45 51
+Checksum: FF
+'''
+
+Request for Data - Broadcast.
+'''
+RX (Receive) Packet 16-bit Address (API 2)
+
+7E 00 0D 81 01 0A 7D 33 02 44 41 54 41 5F 52 45 51 FD
+
+Start delimiter: 7E
+Length: 00 0D (13)
+Frame type: 81 (RX (Receive) Packet 16-bit Address)
+16-bit source address: 01 0A
+RSSI: 13
+Options: 02
+RF data: 44 41 54 41 5F 52 45 51
+Checksum: FD
+'''

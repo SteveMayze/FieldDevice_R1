@@ -1,5 +1,6 @@
 
 from  digi.xbee import devices
+from digi.xbee.exception import XBeeException
 from  leawood.coordinator import AbstractCoordinator
 
 import time
@@ -25,8 +26,8 @@ def request_data(coordinator):
     try:
         coordinator._request_data()
         return "OK"
-    except XBeeException:
-        return "EXCEPTION"
+    except XBeeException as e:
+        return f"EXCEPTION: {type(e)}, {e.args}, {e}"
 
 
 """
@@ -81,18 +82,24 @@ class Coordinator(AbstractCoordinator):
         self.log.info (f'Network: {self._nodes}')
 
 
+    def __str__(self):
+        return f'Coordinator'
+
+
     """
     Cycles through the list of devices and requests from each one if they have any data.
     """
     def _request_data(self):
         coordinator_device = self.coordinating_device
-        self.log.info(f'Located the coordinator: {coordinator_device}')
+        self.log.info(f'Located the coordinator: {coordinator_device.get_node_id()}')
         coordinator_device.open()
 
         for remote in self.nodes:
-            remote_device = devices.RemoteXbeeDevice(coordinator_device, devices.XBee64BitAddress(remote['ADDRESS']))
+            self.log.info(f'Sending a data request to {remote["ADDRESS"]}')
+            remote_device = devices.RemoteXBeeDevice(coordinator_device, devices.XBee64BitAddress.from_hex_string(remote['ADDRESS']))
             self.log.info(f'Sending a DATA_REQ to {remote_device}')
-            coordinator_device.send_data(remote_device, 'DATA_REQ')
+            ## coordinator_device.send_data(remote_device, 'DATA_REQ')
+            coordinator_device.send_data_broadcast( 'DATA_REQ')
             # remote_device.send_data_async(remove_device, 'DATA_REQ')
 
 

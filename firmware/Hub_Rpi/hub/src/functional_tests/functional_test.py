@@ -66,6 +66,9 @@ class TestBasic:
 
         # Sending the request like this means to send out for each 
         # device in the list.
+        status = leawood.xbee.scan_network(coordinator)
+        coordinator.close()
+        
         status = leawood.xbee.request_data(coordinator)
         assert "OK" == status
 
