@@ -36,8 +36,8 @@ class Coordinator(AbstractCoordinator):
     @property
     def coordinating_device(self):
         if ( self._coordinating_device == None):
-            com = config.config_data['serial-port']
-            baud = int(config.config_data['serial-baud'])
+            com = self.config.config_data['serial-port']
+            baud = int(self.config.config_data['serial-baud'])
             self.coordinating_device = devices.XBeeDevice(com, baud)
         return self._coordinating_device
 

@@ -6,6 +6,8 @@ from digi.xbee.devices import XBeeDevice
 from digi.xbee.devices import XBeeNetwork
 import pytest
 import os
+import leawood.xbee
+
 
 @pytest.fixture
 def config():
@@ -39,10 +41,9 @@ class TestBasic:
 
 
     def test_receiver_can_scan_network(self, initialised_coordinator):
-        coordinator = initialised_coordinator
-        coordinator.scan_network()
+        leawood.xbee.scan_network(initialised_coordinator)
 
-        devices = coordinator.nodes
+        devices = initialised_coordinator.nodes
         device = devices[0]
         assert 'GREEN' == device['NI']
 
