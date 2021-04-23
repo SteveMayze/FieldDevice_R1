@@ -5,36 +5,52 @@ from  leawood.coordinator import AbstractCoordinator
 import time
 import json
 
-class XBEE:
-    def __init__(self):
-        pass
+"""
+Broadcases a request to locate any neighboring nodes.
+"""
+def scan_network(coordinator):
+    coordinator._scan_network()
+
+
+"""
+Cycles through the list of devices and requests from each one if they have any data.
+"""
+def request_data(coordinator):
+    coordinator._request_data()
+
+
 """
 The XBee module/classes provides an API wrapper around the 
 """
 class Coordinator(AbstractCoordinator):
 
-    coordinating_device = None
 
     def __init__(self, config):
         super(Coordinator, self).__init__(config, "XBee_Coordinator")
+        self._coordinating_device = None
+
+        self.log.info('XBee_Coordinator: __init__')
 
 
-    def __get_coordinator_device(self):
-        if self.coordinating_device == None:
-            config = self.config
-            self.log.info('setting up the configuration of the XBee device')
+
+    @property
+    def coordinating_device(self):
+        if ( self._coordinating_device == None):
             com = config.config_data['serial-port']
             baud = int(config.config_data['serial-baud'])
             self.coordinating_device = devices.XBeeDevice(com, baud)
-            self.log.info(f"Created Coordinating device {self.coordinating_device}")
-        return self.coordinating_device
+        return self._coordinating_device
+
+    @coordinating_device.setter
+    def coordinating_device(self, device):
+            self._coordinating_device = device
+            self.log.info(f"Created Coordinating device {self._coordinating_device}")
 
     """
     Broadcases a request to locate any neighboring nodes.
     """
-    def scan_network(self):
-        self.nodes = []
-        coordinator = self.__get_coordinator_device()
+    def _scan_network(self):
+        coordinator = self.coordinating_device
         self.log.info(f'Located the coordinator: {coordinator}')
         coordinator.open()
         xnet = coordinator.get_network()
@@ -50,32 +66,16 @@ class Coordinator(AbstractCoordinator):
         for node in nodes:
             device = json.loads(f'{{"NI": "{node.get_node_id()}", "PL": "{node.get_power_level()}", "ADDRESS": "{node.get_64bit_addr()}", "ADDR": "{node.get_16bit_addr()}"}}')
             device['device-id'] = 'NOT-SET'
-            self.nodes.append(device)
+            self._nodes.append(device)
 
-        self.log.info (f'Network: {self.nodes}')
+        self.log.info (f'Network: {self._nodes}')
 
-    """
-    Executes on receipt of messages to the coordinator.
-    """
-    def data_receive_callback(self):
-        self.log.info('BEGIN')
-        self.log.info('END')
-        pass
-
-    """
-    Registers the call back to the coordinator.
-    """
-    def start_receiver(self):
-        self.log.info('BEGIN')
-        self.log.info('END')
-        pass
-        
 
     """
     Cycles through the list of devices and requests from each one if they have any data.
     """
-    def request_data(self):
-        coordinator_device = self.__get_coordinator_device()
+    def _request_data(self):
+        coordinator_device = self.coordinating_device
         self.log.info(f'Located the coordinator: {coordinator_device}')
         coordinator_device.open()
 
@@ -92,3 +92,21 @@ class Coordinator(AbstractCoordinator):
     def close(self):
         self.coordinating_device.close()
 
+
+    """
+    Executes on receipt of messages to the coordinator.
+    """
+    def data_receive_callback(self):
+        self.log.info('BEGIN')
+        self.log.info('END')
+        pass
+
+    """
+    Registers the call back to the coordinator.
+    """
+    def start_receiver(self):
+        self.log.info('BEGIN')
+        self.log.info('END')
+        pass
+
+    
