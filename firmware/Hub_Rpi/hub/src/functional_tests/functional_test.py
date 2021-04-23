@@ -18,7 +18,7 @@ def config():
     return Config(args)
 
 @pytest.fixture
-def initialised_coordinator(config):
+def coordinator(config):
     coordinator = Coordinator(config)
     yield coordinator
     coordinator.close()
@@ -40,11 +40,13 @@ class TestBasic:
     ## 11.04.21 - This has then initial code able to return OK.
 
 
-    def test_receiver_can_scan_network(self, initialised_coordinator):
-        leawood.xbee.scan_network(initialised_coordinator)
+    def test_coordinator_can_scan_network(self, coordinator):
+        status = leawood.xbee.scan_network(coordinator)
+        assert "OK" == status
 
-        devices = initialised_coordinator.nodes
+        devices = coordinator.nodes
         device = devices[0]
+        assert 'RED' == coordinator.coordinating_device.get_node_id()
         assert 'GREEN' == device['NI']
 
 
@@ -56,3 +58,15 @@ class TestBasic:
     ##          3.1 The request for data can be at two levels
     ##              - What information will you send i.e. Domain, Class, label, data type
     ##              - THe readings of the sensors and the values.
+
+    def test_coordinator_can_send_and_receive(self, coordinator):
+        
+        # We need to start some sort of process to receive
+        # the messages.
+
+        # Sending the request like this means to send out for each 
+        # device in the list.
+        status = leawood.xbee.request_data(coordinator)
+        assert "OK" == status
+
+        # Then we need to check if the messages have been received.

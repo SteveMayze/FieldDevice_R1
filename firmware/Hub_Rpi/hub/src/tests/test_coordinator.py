@@ -49,7 +49,8 @@ class TestCase:
 
     def test_coordinator_scan_network(self, config):
         coordinator = FakeCoordinator(config)
-        leawood.xbee.scan_network(coordinator)
+        status = leawood.xbee.scan_network(coordinator)
+        assert "OK" == status
 
         devices = coordinator.nodes
         device = devices[0]
@@ -62,7 +63,9 @@ class TestCase:
         device['device-id'] = 'NOT-SET'
         coordinator.add_node(device)
 
-        leawood.xbee.request_data(coordinator)
+        status = leawood.xbee.request_data(coordinator)
+        assert "OK" == status
+
         # assert node_data[0]['voltage'] == 10.6
         assert coordinator.coordinating_device.spy["COORDINATOR"] == 'DATA_REQ'
 

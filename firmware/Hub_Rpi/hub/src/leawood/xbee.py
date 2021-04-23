@@ -9,14 +9,24 @@ import json
 Broadcases a request to locate any neighboring nodes.
 """
 def scan_network(coordinator):
-    coordinator._scan_network()
+    try:
+        coordinator._scan_network()
+        return "OK"
+    except XBeeException:
+        return "EXCEPTION"
+
+
 
 
 """
 Cycles through the list of devices and requests from each one if they have any data.
 """
 def request_data(coordinator):
-    coordinator._request_data()
+    try:
+        coordinator._request_data()
+        return "OK"
+    except XBeeException:
+        return "EXCEPTION"
 
 
 """

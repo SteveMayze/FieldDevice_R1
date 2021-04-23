@@ -9,6 +9,27 @@ debug = False
 
 class Config:
 
+    def __init__(self, args):
+        self._log = logging.getLogger('config')
+        self._subscribe_topic = 'power/sensor/+/data'
+        self._publish_topic = 'power/sensor/0013A20041629BFB/data'
+        self._config_data = self.handle_config(self.parse_args(args=args) )
+        self._debug = self.config_data["debug"]
+
+    @property
+    def log(self):
+        return self._log
+
+    @property
+    def config_data(self):
+        return self._config_data
+
+    @property
+    def debug(self):
+        return self._debug
+
+
+
 
     def getLogger(self, module):
         log = logging.getLogger(module)
@@ -113,9 +134,3 @@ class Config:
         self.log.debug(f'config_data: {config_data}')
         return config_data
 
-    def __init__(self, args):
-        self.log = logging.getLogger('config')
-        self.subscribe_topic = 'power/sensor/+/data'
-        self.publish_topic = 'power/sensor/0013A20041629BFB/data'
-        self.config_data = self.handle_config(self.parse_args(args=args) )
-        self.debug = self.config_data["debug"]
