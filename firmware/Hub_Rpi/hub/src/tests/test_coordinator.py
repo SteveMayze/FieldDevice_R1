@@ -8,11 +8,11 @@ import json
 import leawood.xbee
 import tests.xbee_support
 
+
 @pytest.fixture
 def config():
     args = ["--serial-port", "COM1", "--baud", "9600"]
     return Config(args)
-
 
 
 class TestCase:
@@ -61,3 +61,5 @@ class TestCase:
         assert "EXCEPTION" == status
 
 
+    def test_xbee_can_receive_data(self, config):
+        pass

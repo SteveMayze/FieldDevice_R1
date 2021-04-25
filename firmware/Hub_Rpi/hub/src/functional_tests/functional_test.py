@@ -8,20 +8,8 @@ import pytest
 import os
 import leawood.xbee
 
+import functional_tests.conftest
 
-@pytest.fixture
-def config():
-    port = os.environ.get('XBEE_PORT')
-    assert port != None
-
-    args = ["--serial-port", port, "--baud", "9600"]
-    return Config(args)
-
-@pytest.fixture
-def coordinator(config):
-    coordinator = Coordinator(config)
-    yield coordinator
-    coordinator.close()
 
 
 class TestBasic:
@@ -39,6 +27,12 @@ class TestBasic:
     ## After all, it is an functional/integration test!
     ## 11.04.21 - This has then initial code able to return OK.
 
+    """
+    Peroforms a basic test on the ability for the coordinator to scan the
+    netowrk for other devices.
+
+    The coordinator fixure is defined in the conftest.py 
+    """
 
     def test_coordinator_can_scan_network(self, coordinator):
         status = leawood.xbee.scan_network(coordinator)

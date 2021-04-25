@@ -34,12 +34,10 @@ python -m pytest -s tests
 
 # Windows
 ## Power Shell
-$Env:XBEE_PORT = "COM6"
-python -m pytest 
+python -m pytest --xbeeport COM6
 
 # Mac/Linux
-export XBEE_PORT=/dev/ttyUSB0
-python -m pytest
+python -m pytest --xbeeport /dev/ttyUSB0
 
 
 Request for Data - Specific module.
