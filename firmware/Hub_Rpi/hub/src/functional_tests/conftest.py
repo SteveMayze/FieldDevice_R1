@@ -10,7 +10,7 @@ def pytest_addoption(parser):
 @pytest.fixture
 def coord_config(pytestconfig):
     port = pytestconfig.getoption('xbeeport')
-    args = ["--serial-port", port, "--baud", "9600"]
+    args = ["--serial-port", port, "--baud", "9600", "--sleeptime", "10"]
     return Config(args)
 
 

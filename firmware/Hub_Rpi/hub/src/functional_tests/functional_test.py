@@ -7,6 +7,7 @@ from digi.xbee.devices import XBeeNetwork
 import pytest
 import os
 import leawood.xbee
+import time
 
 import functional_tests.conftest
 
@@ -60,10 +61,21 @@ class TestBasic:
 
         # Sending the request like this means to send out for each 
         # device in the list.
-        status = leawood.xbee.scan_network(coordinator)
-        coordinator.close()
-        
+        status = leawood.xbee.scan_network(coordinator)      
         status = leawood.xbee.request_data(coordinator)
         assert "OK" == status
 
         # Then we need to check if the messages have been received.
+
+    def test_background_thread_is_running(self, coordinator):
+        coordinator.log.info('Activating the listener')
+        leawood.xbee.activate(coordinator)
+        coordinator.log.info('Waiting 10 seconds before checking the state')
+        time.sleep(10)
+        assert coordinator.is_running() == True
+
+        coordinator.log.info('Requesting the shutdown')
+        leawood.xbee.shutdown(coordinator)
+        time.sleep(10)
+        coordinator.log.info('Waiting 10 seconds before checking the state')
+        assert coordinator.is_running() == False

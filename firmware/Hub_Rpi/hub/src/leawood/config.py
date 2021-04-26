@@ -55,6 +55,7 @@ class Config:
         parser.add_argument('-f', '--file', metavar='file', required=False, dest='file', action='store', help='The port for the MQTT sever')
         parser.add_argument('-s', '--serial-port', metavar='serial-port', required=False, dest='serialport', action='store', help='The serial port for the XBee module')
         parser.add_argument('-b', '--baud', metavar='baud', required=False, dest='baud', action='store', help='The baud rate for the XBee module')
+        parser.add_argument('-S', '--sleeptime', metavar='sleeptime', required=False, dest='sleeptime', action='store', help='The sleep time when waiting to request new information')
         parsed_args = parser.parse_args(args)
         return parsed_args
 
@@ -130,6 +131,10 @@ class Config:
         if args.baud != None:
             self.log.debug( f'Baud Rate: {args.baud}')
             config_data['serial-baud'] = args.baud
+
+        if args.sleeptime != None:
+            self.log.debug( f'Sleep time: {args.sleeptime}')
+            config_data['sleep-time'] = args.sleeptime
 
         self.log.debug(f'config_data: {config_data}')
         return config_data
