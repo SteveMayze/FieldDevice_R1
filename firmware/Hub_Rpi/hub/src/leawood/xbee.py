@@ -55,7 +55,7 @@ def activate(coordinator):
         if "OK" != status:
             record_error(coordinator) 
 
-        coordinator.register_listeners(coordinator, coordinator.data_receive_callback)
+        coordinator.register_listeners(coordinator.data_receive_callback)
         if "OK" != status:
             record_error(coordinator) 
         coordinator.listener_thread = Thread(target=coordinator._listener)
@@ -176,15 +176,15 @@ class Coordinator(AbstractCoordinator):
     """
     Registers the data handling callback
     """
-    def register_listeners(self, coordinator, data_recevie_callback):
+    def register_listeners(self, data_recevie_callback):
+        self.coordinating_device.add_data_received_callback(data_recevie_callback)
         return "OK"
 
     def _listener(self):
         self.log.debug('Setting the job to running')
         self._running = True
-        timeout = 3
         sleep_time = int(self.config.config_data["sleep-time"])
-        while self.is_running() and timeout > 0:
+        while self.is_running():
             self.log.debug('Requesting data')
             self._request_data()
 
@@ -198,9 +198,7 @@ class Coordinator(AbstractCoordinator):
             self.log.debug(f'sleeping for {sleep_time}...')
             time.sleep(sleep_time)
 
-            timeout = timeout -1
-
-        self.log.debug(f'Requested to shut down: is_running={self.is_running()} timeout={timeout}...')
+        self.log.debug(f'Requested to shut down: is_running={self.is_running()}... ')
 
     def open(self):
         if( self.coordinating_device is not None and self.coordinating_device.is_open() == False):

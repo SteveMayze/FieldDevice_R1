@@ -14,6 +14,20 @@ import functional_tests.conftest
 
 
 class TestBasic:
+
+    MAX_WAIT = 5
+
+    def wait_for_runnning_state(self, coordinator, state):
+        start_time = time.time()
+        while True:
+            try:
+                assert coordinator.is_running() == state
+                return
+            except (AssertionError) as error:
+                if time.time() - start_time > MAX_WAIT: 
+                    raise e 
+                time.sleep( 0.5)
+
     
     ## The gateway client starts up and activates the receiver which 
     ## monitors the XBee radio for any incomming messages and posts
@@ -70,12 +84,11 @@ class TestBasic:
     def test_background_thread_is_running(self, coordinator):
         coordinator.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
-        coordinator.log.info('Waiting 10 seconds before checking the state')
-        time.sleep(10)
-        assert coordinator.is_running() == True
+        coordinator.log.info('Waiting for startup')
+        self.wait_for_runnning_state(coordinator, True)
+
 
         coordinator.log.info('Requesting the shutdown')
         leawood.xbee.shutdown(coordinator)
-        time.sleep(10)
-        coordinator.log.info('Waiting 10 seconds before checking the state')
-        assert coordinator.is_running() == False
+        coordinator.log.info('Waiting for shutdown')
+        self.wait_for_runnning_state(coordinator, False)
