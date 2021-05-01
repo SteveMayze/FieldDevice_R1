@@ -11,11 +11,11 @@ import time
 
 import functional_tests.conftest
 
+MAX_WAIT = 5
 
 
 class TestBasic:
 
-    MAX_WAIT = 5
 
     def wait_for_runnning_state(self, coordinator, state):
         start_time = time.time()
@@ -25,7 +25,7 @@ class TestBasic:
                 return
             except (AssertionError) as error:
                 if time.time() - start_time > MAX_WAIT: 
-                    raise e 
+                    raise error 
                 time.sleep( 0.5)
 
     
