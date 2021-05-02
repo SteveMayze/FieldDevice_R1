@@ -161,17 +161,22 @@ class Coordinator(AbstractCoordinator):
             remote_device = devices.RemoteXBeeDevice(coordinator_device, devices.XBee64BitAddress.from_hex_string(remote['ADDRESS']))
             self.log.debug(f'Sending a DATA_REQ to {remote_device}')
             ## coordinator_device.send_data(remote_device, 'DATA_REQ')
-            coordinator_device.send_data_broadcast( 'DATA_REQ')
-            # remote_device.send_data_async(remove_device, 'DATA_REQ')
+            ## coordinator_device.send_data_broadcast( 'DATA_REQ')
+            coordinator_device.send_data_async(remote_device, 'DATA_REQ')
 
 
     """
     Executes on receipt of messages to the coordinator.
     """
-    def data_receive_callback(self):
+    def data_receive_callback(self, xbee_message):
         self.log.debug('BEGIN')
+        address = xbee_message.remote_device.get_64bit_addr()
+        data = xbee_message.data.decode('utf8')
+        self.log.debug(f'Address: {address}, data: {data}')
+        # Push this to the MQTT broker.
+        
         self.log.debug('END')
-        pass
+
 
     """
     Registers the data handling callback
