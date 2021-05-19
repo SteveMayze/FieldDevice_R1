@@ -77,7 +77,7 @@ def shutdown(coordinator):
 
 
 """
-The XBee module/classes provides an API wrapper around the 
+The XBee module/classes provides an API wrapper around the XBee Python module
 """
 class Coordinator(AbstractCoordinator):
 

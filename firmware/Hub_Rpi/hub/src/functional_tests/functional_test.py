@@ -1,10 +1,6 @@
 
 from leawood.config import Config
 from leawood.xbee import Coordinator
-from unittest.mock import patch
-from digi.xbee.devices import XBeeDevice
-from digi.xbee.devices import XBeeNetwork
-import pytest
 import os
 import leawood.xbee
 import time
