@@ -7,15 +7,31 @@ import pytest
 import json
 import leawood.xbee
 import tests.xbee_support
+import time
+
+MAX_WAIT = 1
 
 
 @pytest.fixture
 def config():
-    args = ["--serial-port", "COM1", "--baud", "9600"]
+    args = ["--serial-port", "COM1", "--baud", "9600", "--sleeptime", "0"]
     return Config(args)
 
 
 class TestCase:
+
+
+    def wait_for_runnning_state(self, coordinator, state):
+        start_time = time.time()
+        while True:
+            try:
+                assert coordinator.is_running() == state
+                return
+            except (AssertionError) as error:
+                if time.time() - start_time > MAX_WAIT: 
+                    raise error 
+                time.sleep( 0.5)
+
 
     def test_coordinator_scan_network(self, config):
         coordinator = tests.xbee_support.FakeCoordinator(config)
@@ -62,4 +78,21 @@ class TestCase:
 
 
     def test_xbee_can_receive_data(self, config):
-        pass
+        coordinator = tests.xbee_support.FakeCoordinator(config)
+
+        coordinator.log.info('Activating the listener')
+        leawood.xbee.activate(coordinator)
+        coordinator.log.info('Waiting for startup')
+        self.wait_for_runnning_state(coordinator, True)
+
+        coordinator.data_receive_callback('test_message')
+
+        coordinator.log.info('Requesting the shutdown')
+        leawood.xbee.shutdown(coordinator)
+        coordinator.log.info('Waiting for shutdown')
+        self.wait_for_runnning_state(coordinator, False)
+
+        assert len(coordinator.messages) > 0
+
+        ## Assert that the message was sent to the MQTT broker.
+        
