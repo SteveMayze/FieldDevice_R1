@@ -2,11 +2,15 @@
 
 class AbstractCoordinator:
 
-    def __init__(self, config, name):
+    def __init__(self, config, publisher, name):
         self._config = config
         self._log = config.getLogger(name)
         self._nodes = []
+
+        self._publisher = publisher
+
         self.log.debug('AbstractCoordinator: __init__')
+
 
     @property
     def log(self):
@@ -35,3 +39,11 @@ class AbstractCoordinator:
 
     def add_node(self, node):
         self._nodes.append(node)
+
+    @property
+    def publisher(self):
+        return self._publisher
+
+    @publisher.setter
+    def publisher(self, value):
+        self._publisher = value

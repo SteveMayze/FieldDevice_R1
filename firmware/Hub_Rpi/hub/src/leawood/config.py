@@ -28,9 +28,6 @@ class Config:
     def debug(self):
         return self._debug
 
-
-
-
     def getLogger(self, module):
         log = logging.getLogger(module)
         if ( self.debug ):
@@ -38,6 +35,16 @@ class Config:
         else:
             log.setLevel(logging.INFO)
         return log
+
+
+    @property
+    def public_topic(self):
+        return self._publish_topic
+
+    @public_topic.setter
+    def publish_topic(self, value):
+        self._publish_topic = value
+
 
     def parse_args(self, args):
         parser = argparse.ArgumentParser(description="List and download the artifact metadata. kubectl port-forward $deploy_pod 9000:9000")
@@ -52,7 +59,7 @@ class Config:
         parser.add_argument('-k', '--clientkey', metavar='clientkey', required=False, dest='clientkey', action='store', help='The name of the client key file')
         parser.add_argument('-m', '--mqttserver', metavar='mqttserver', required=False, dest='mqttserver', action='store', help='The IP address of the MQTT server')
         parser.add_argument('-p', '--mqttport', metavar='mqttport', required=False, dest='mqttport', action='store', help='The port for the MQTT sever')
-        parser.add_argument('-f', '--file', metavar='file', required=False, dest='file', action='store', help='The port for the MQTT sever')
+        parser.add_argument('-f', '--file', metavar='file', required=False, dest='file', action='store', help='The name of the payload file')
         parser.add_argument('-s', '--serial-port', metavar='serial-port', required=False, dest='serialport', action='store', help='The serial port for the XBee module')
         parser.add_argument('-b', '--baud', metavar='baud', required=False, dest='baud', action='store', help='The baud rate for the XBee module')
         parser.add_argument('-S', '--sleeptime', metavar='sleeptime', required=False, dest='sleeptime', action='store', help='The sleep time when waiting to request new information')

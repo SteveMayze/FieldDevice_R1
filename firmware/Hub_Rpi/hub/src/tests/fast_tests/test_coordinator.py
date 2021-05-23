@@ -7,6 +7,7 @@ import pytest
 import json
 import leawood.xbee
 import tests.fast_tests.xbee_support
+import tests.fast_tests.mqtt_support
 import time
 
 MAX_WAIT = 1
@@ -17,6 +18,10 @@ def config():
     args = ["--serial-port", "COM1", "--baud", "9600", "--sleeptime", "0"]
     return Config(args)
 
+@pytest.fixture
+def coordinator(config):
+    publisher = tests.fast_tests.mqtt_support.FakePublisher(config)
+    return tests.fast_tests.xbee_support.FakeCoordinator(config, publisher)
 
 class TestCase:
 
@@ -33,8 +38,7 @@ class TestCase:
                 time.sleep( 0.5)
 
 
-    def test_coordinator_scan_network(self, config):
-        coordinator = tests.fast_tests.xbee_support.FakeCoordinator(config)
+    def test_coordinator_scan_network(self, coordinator):
         status = leawood.xbee.scan_network(coordinator)
         assert "OK" == status
 
@@ -43,8 +47,7 @@ class TestCase:
         assert 'GREEN' == device['NI']
 
 
-    def test_coordinator_can_request_data(self, config):
-        coordinator = tests.fast_tests.xbee_support.FakeCoordinator(config)
+    def test_coordinator_can_request_data(self, coordinator):
         device = json.loads(f'{{"NI": "GREEN", "PL": "FF", "ADDRESS": "00000001", "ADDR": "0001"}}')
         device['device-id'] = 'NOT-SET'
         coordinator.add_node(device)
@@ -61,9 +64,11 @@ class TestCase:
     """
     def test_xbee_exception_returns_failed(self, config):
         ## A local fake coordinator just to throw an exception
+        publisher = tests.fast_tests.mqtt_support.FakePublisher(config)
+
         class BrokenCoordinator(tests.fast_tests.xbee_support.FakeCoordinator):
-            def __init__(self, config):
-                tests.fast_tests.xbee_support.FakeCoordinator.__init__(self, config )
+            def __init__(self, config, publisher):
+                tests.fast_tests.xbee_support.FakeCoordinator.__init__(self, config, publisher )
                 self.log.info('BrokenCoordinator: __init__')
 
             def _scan_network(self):
@@ -72,13 +77,12 @@ class TestCase:
         ## TODO - Further possibilities are here to examine the type
         ##        of exception and produce a better response and handling
         ##        i.e. logging the issues back to the base.
-        coordinator = BrokenCoordinator(config)
+        coordinator = BrokenCoordinator(config, publisher)
         status = leawood.xbee.scan_network(coordinator)
         assert "EXCEPTION" == status
 
 
-    def test_xbee_can_receive_data(self, config):
-        coordinator = tests.fast_tests.xbee_support.FakeCoordinator(config)
+    def test_xbee_can_receive_data(self, coordinator):
 
         coordinator.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
@@ -92,7 +96,5 @@ class TestCase:
         coordinator.log.info('Waiting for shutdown')
         self.wait_for_runnning_state(coordinator, False)
 
-        assert len(coordinator.messages) > 0
-
         ## Assert that the message was sent to the MQTT broker.
-        
+        assert coordinator.config.publish_topic in coordinator.publisher.publish_queue

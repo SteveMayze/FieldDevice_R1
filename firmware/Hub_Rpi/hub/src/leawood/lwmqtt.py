@@ -100,7 +100,7 @@ class Publisher:
         self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
         self.log.info(f"Publishing {payload}")
         self.client.publish(
-            topic = self.config.publish_topic,
+            topic = topic,
             payload = payload
         )
         # self.client.disconnect

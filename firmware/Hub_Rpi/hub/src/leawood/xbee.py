@@ -82,8 +82,8 @@ The XBee module/classes provides an API wrapper around the XBee Python module
 class Coordinator(AbstractCoordinator):
 
 
-    def __init__(self, config):
-        super(Coordinator, self).__init__(config, "XBee_Coordinator")
+    def __init__(self, config, publisher):
+        super(Coordinator, self).__init__(config, publisher, "XBee_Coordinator")
         self._coordinating_device = None
         self._running = False
         self.log.debug('XBee_Coordinator: __init__')
@@ -174,6 +174,8 @@ class Coordinator(AbstractCoordinator):
         data = xbee_message.data.decode('utf8')
         self.log.debug(f'Address: {address}, data: {data}')
         # Push this to the MQTT broker.
+
+        self.publisher.publish('xbee.topic', xbee_message)
         
         self.log.debug('END')
 
