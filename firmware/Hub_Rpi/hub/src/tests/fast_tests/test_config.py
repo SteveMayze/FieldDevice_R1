@@ -14,7 +14,7 @@ class TestCase:
         assert config.debug
 
     def test_config_file(self):
-        args = ["-v", "--config", "tests/sample-config.json"]
+        args = ["-v", "--config", "tests/fast_tests/sample-config.json"]
         config = Config(args)
         assert config.config_data['username'] == 'REST_USER'
         assert config.config_data['password'] == 'PASSWORD-NOT-SET'

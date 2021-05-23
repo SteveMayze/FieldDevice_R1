@@ -5,7 +5,7 @@ import os
 import leawood.xbee
 import time
 
-import functional_tests.conftest
+import tests.slow_tests.conftest
 
 MAX_WAIT = 5
 
