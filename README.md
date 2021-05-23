@@ -17,17 +17,17 @@ python -m pytest
 ```
 ## Run unit tests
 ```shell
-python -m pytest tests
+python -m pytest tests/fast_tests
 ```
 ## Run runctional/integration tests
 ```shell
-python -m pytest functional_tests
+python -m pytest tests/slow_tests
 ```
 Note: Use the -s option on pytest to see any stdout messages. To see the logging that is
 a part of the leawood package then use the --log-cli-level=NOTSET option.
 
 ```shell
-python -m pytest --log-cli-level=NOTSET -s .\\functional_tests
+python -m pytest --log-cli-level=NOTSET -s ./tests/slow_tests
 ```
 
 python -m pytest -s tests
