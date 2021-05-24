@@ -1,7 +1,6 @@
 
 from leawood.config import Config
 from leawood.xbee import Coordinator
-from unittest.mock import patch
 from digi.xbee.devices import XBeeException
 import pytest
 import json

@@ -74,12 +74,30 @@ class Publisher:
         self.config = config
         self.log = config.getLogger("lwmqtt.Publisher")
         self.log.info(f'Initialising the Publisher')
-        self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
-        self.client.tls_set(
-            ca_certs = os.path.join(config.config_data['certpath'], config.config_data['cacert']), 
-            certfile = os.path.join(config.config_data['certpath'], config.config_data['clientcrt']), 
-            keyfile  = os.path.join(config.config_data['certpath'], config.config_data['clientkey'])
-            )
+        self._client = None
+
+
+    @property
+    def client(self):
+        if self._client == None:
+            self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
+            cacert = os.path.join(self.config.config_data['certpath'], self.config.config_data['cacert'])
+            clientcert = os.path.join(self.config.config_data['certpath'], self.config.config_data['clientcrt'])
+            clientkey = os.path.join(self.config.config_data['certpath'], self.config.config_data['clientkey'])
+            self.log.info('Setting up the certificates')
+            self.log.info(f"CA certificate: {cacert}")
+            self.log.info(f"Client certificate: {clientcert}")
+            self.log.info(f"Client key: {clientkey}")
+            self._client.tls_set(
+                ca_certs = cacert, 
+                certfile = clientcert, 
+                keyfile  = clientkey
+                )
+        return self._client
+
+    @client.setter
+    def client(self, value):
+        self._client = value
 
     def __enter__(self): 
         config = self.config

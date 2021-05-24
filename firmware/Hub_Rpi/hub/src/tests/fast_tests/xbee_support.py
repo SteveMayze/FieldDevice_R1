@@ -1,6 +1,7 @@
 
 from leawood.config import Config
 from leawood.xbee import Coordinator
+from leawood.xbee import Sensor
 from unittest.mock import patch
 from digi.xbee.devices import XBeeDevice
 import json
@@ -43,3 +44,27 @@ class FakeCoordinator(Coordinator):
     def __str__(self):
         return 'FakeCoordinator'
 
+
+class FakeSensingDevice(XBeeDevice):
+    def __init__(self, com, baud):
+        XBeeDevice.__init__(self, com, baud)
+        self.spy = {}
+        self.log.info('FakeSensingDevice: __init__')
+
+    def __str__(self):
+        return 'FakeSensingDevice'
+
+
+class FakeSensor(Sensor):
+    def __init__(self, config):
+        Sensor.__init__(self, config )
+        com = config.config_data['serial-port']
+        baud = int(config.config_data['serial-baud'])
+        self.sensing_device = FakeSensingDevice(com, baud)
+        self.log.info('FakeSensor: __init__')
+
+    def _send_data(self, address, payload):
+        self.sensing_device.spy[address] = payload
+
+    def __str__(self):
+        return 'FakeSensor'

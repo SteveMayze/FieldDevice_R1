@@ -47,3 +47,32 @@ class AbstractCoordinator:
     @publisher.setter
     def publisher(self, value):
         self._publisher = value
+
+
+
+
+class AbstractSensor:
+
+    def __init__(self, config, name):
+        self._config = config
+        self._log = config.getLogger(name)
+        self.log.debug('AbstractCoordinator: __init__')
+
+    @property
+    def log(self):
+        return self._log
+
+    @log.setter
+    def log(self, log):
+        self._log = log
+
+    @property
+    def config(self):
+        return self._config
+
+    @config.setter
+    def config(self, config):
+        self._config = config
+
+
+        

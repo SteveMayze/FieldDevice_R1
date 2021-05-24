@@ -1,7 +1,8 @@
 
 from  digi.xbee import devices
 from digi.xbee.exception import XBeeException
-from  leawood.coordinator import AbstractCoordinator
+from  leawood.base import AbstractCoordinator
+from  leawood.base import AbstractSensor
 import time
 import json
 from threading import Thread
@@ -64,6 +65,12 @@ def activate(coordinator):
     ## except Exception as e:
     ##    coordinator.log.error(f'Runtime exception {e}')
 
+def send_data(sensor, address, payload):
+    try:
+        sensor._send_data(address, payload)
+        return "OK"
+    except XBeeException as e:
+        return f"EXCEPTION: {type(e)}, {e.args}, {e}"
 
 def shutdown(coordinator):
     try: 
@@ -96,13 +103,14 @@ class Coordinator(AbstractCoordinator):
         if ( self._coordinating_device == None):
             com = self.config.config_data['serial-port']
             baud = int(self.config.config_data['serial-baud'])
+            self.log.info(f'Creating a coordinator with a connection to {com} at {baud}')
             self.coordinating_device = devices.XBeeDevice(com, baud)
         return self._coordinating_device
 
     @coordinating_device.setter
     def coordinating_device(self, device):
-            self._coordinating_device = device
-            self.log.debug(f"Created Coordinating device {self._coordinating_device}")
+        self._coordinating_device = device
+        self.log.debug(f"Created Coordinating device {self._coordinating_device}")
 
     @property
     def listener_thread(self):
@@ -172,10 +180,9 @@ class Coordinator(AbstractCoordinator):
         self.log.debug('BEGIN')
         address = xbee_message.remote_device.get_64bit_addr()
         data = xbee_message.data.decode('utf8')
-        self.log.debug(f'Address: {address}, data: {data}')
+        self.log.debug(f'Pushing to the MQTT: Address: {address}, data: {data}, topic {self.config.publish_topic}')
         # Push this to the MQTT broker.
-
-        self.publisher.publish('xbee.topic', xbee_message)
+        ## self.publisher.publish(self.config.publish_topic, xbee_message)
         
         self.log.debug('END')
 
@@ -219,4 +226,54 @@ class Coordinator(AbstractCoordinator):
             self.coordinating_device.close()
 
 
+
+"""
+The XBee module/classes provides an API wrapper around the XBee Python module
+"""
+class Sensor(AbstractSensor):
+
+    def __init__(self, config):
+        super(Sensor, self).__init__(config, "XBee_Sensor")
+        self._sensing_device = None
+        self._running = False
+        self.log.debug('XBee_Sensor: __init__')
+        self._listener_thread = None
+
+
+
+    @property
+    def sensing_device(self):
+        if ( self._sensing_device == None):
+            com = self.config.config_data['serial-port']
+            baud = int(self.config.config_data['serial-baud'])
+            self.log.info(f'Creating a sensor with a connection to {com} at {baud}')
+            self._sensing_device = devices.XBeeDevice(com, baud)
+            sync_timeout = self._sensing_device.get_sync_ops_timeout()
+            self.log.info(f'Synchronous timeout: {sync_timeout}')
+            self._sensing_device.set_sync_ops_timeout(10)
+        return self._sensing_device
+
+    @sensing_device.setter
+    def sensing_device(self, device):
+            self._sensing_device = device
+            self.log.debug(f"Created Sensing device {self._sensing_device}")
+
+
+    def _send_data(self, address, payload):
+        self.open()
+        self.log.info(f'Creating the remote device at {address}')
+        remote_device = devices.RemoteXBeeDevice(self.sensing_device, devices.XBee64BitAddress.from_hex_string(address))
+        self.log.info(f'Sending from {self.sensing_device.get_64bit_addr()} to {address}')
+        self.sensing_device.send_data(remote_device, payload)
+
+    def open(self):
+        if( self.sensing_device is not None and self.sensing_device.is_open() == False):
+            self.sensing_device.open()
+
+    """
+    Closes the connection to the coordinator.
+    """
+    def close(self):
+        if( self.sensing_device is not None and self.sensing_device.is_open()):
+            self.sensing_device.close()
 

@@ -1,13 +1,15 @@
 
 from leawood.config import Config
 from leawood.xbee import Coordinator
+from leawood.xbee import Sensor
 import os
 import leawood.xbee
 import time
+import json
 
 import tests.slow_tests.conftest
 
-MAX_WAIT = 5
+MAX_WAIT = 30
 
 
 class TestBasic:
@@ -75,16 +77,26 @@ class TestBasic:
         status = leawood.xbee.request_data(coordinator)
         assert "OK" == status
 
-        # Then we need to check if the messages have been received.
 
-    def test_background_thread_is_running(self, coordinator):
+
+
+    # Then we need to check if the messages have been received.
+
+    def test_background_thread_is_running(self, coordinator, sensor):
         coordinator.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
         coordinator.log.info('Waiting for startup')
         self.wait_for_runnning_state(coordinator, True)
 
+        addr = str(coordinator.coordinating_device.get_64bit_addr())
+        sensor.log.info(f'Sending a message to {addr}')
+
+        payload = json.loads(f'{{"bus-voltage": 10.0}}')
+        status = leawood.xbee.send_data(sensor, str(addr), str(payload))
+        assert "OK" == status
 
         coordinator.log.info('Requesting the shutdown')
         leawood.xbee.shutdown(coordinator)
         coordinator.log.info('Waiting for shutdown')
         self.wait_for_runnning_state(coordinator, False)
+
