@@ -88,12 +88,34 @@ class TestBasic:
         coordinator.log.info('Waiting for startup')
         self.wait_for_runnning_state(coordinator, True)
 
+        # Send a message from GREEN to be picked up and handled
+        # by the coordinator RED. This message is then posted 
+        # to the MQTT
         addr = str(coordinator.coordinating_device.get_64bit_addr())
         sensor.log.info(f'Sending a message to {addr}')
-
         payload = json.loads(f'{{"bus-voltage": 10.0}}')
-        status = leawood.xbee.send_data(sensor, str(addr), str(payload))
+        status = leawood.xbee.send_data(sensor, str(addr), json.dumps(payload))
         assert "OK" == status
+
+
+        # The message is being posted to the MQTT ... this
+        # now needs a mechanism to subscribe and wait for a
+        # message to appear on the queue.
+        # NB: The MQTT is only working based on a bodge to reduce the 
+        #     security checking. Otherwise the certificates are failing
+        #     though they work on the command line.
+        # Failure in the MQTT layer is not being reflected back 
+        # at the higher end of the system and is going undetected.#
+        # This can only be seen with the following options on the test
+        # -v  --log-cli-level=NOTSET -s
+
+        # Make sure the XBee units are running as is the MQTT server
+        # Verificatio is only made using a manual subscriber
+        #  "C:\Program Files\mosquitto\mosquitto_sub" -h 192.168.178.45 
+        #             -V mqttv311 -p 8883 --cafile ca.crt --cert hub001.crt 
+        #             --key hub001.key -t "power/sensor/0013A20041629BFB/data"
+
+        ### This now constitues a tear down of the whole test.
 
         coordinator.log.info('Requesting the shutdown')
         leawood.xbee.shutdown(coordinator)

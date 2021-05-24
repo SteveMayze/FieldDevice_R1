@@ -182,7 +182,7 @@ class Coordinator(AbstractCoordinator):
         data = xbee_message.data.decode('utf8')
         self.log.debug(f'Pushing to the MQTT: Address: {address}, data: {data}, topic {self.config.publish_topic}')
         # Push this to the MQTT broker.
-        ## self.publisher.publish(self.config.publish_topic, xbee_message)
+        self.publisher.publish(self.config.publish_topic, xbee_message.data.decode("utf8"))
         
         self.log.debug('END')
 

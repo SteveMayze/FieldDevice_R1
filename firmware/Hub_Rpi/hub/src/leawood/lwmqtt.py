@@ -4,6 +4,7 @@ from leawood.lwrest import Rest
 import json
 import os
 import logging
+import ssl
 
 from json import JSONEncoder
 
@@ -17,7 +18,7 @@ def on_subscribe(client, userdata, mid, granted_qos):
 
 def on_message(client, userdata, msg):
     userdata.log.info(f'Message received. Topic: {msg.topic}, payload {str(msg.payload)}')
-    qData = json.loads(msg.payload);
+    qData = json.loads(msg.payload)
     rest = Rest(userdata.config)
     response = rest.post("data_points", JSONEncoder().encode(qData).encode("utf-8"))
     userdata.log.info(f'Response: {response.status_code}')
@@ -80,6 +81,7 @@ class Publisher:
     @property
     def client(self):
         if self._client == None:
+            # self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
             self.client = mqtt.Client(protocol=mqtt.MQTTv311, userdata=self)
             cacert = os.path.join(self.config.config_data['certpath'], self.config.config_data['cacert'])
             clientcert = os.path.join(self.config.config_data['certpath'], self.config.config_data['clientcrt'])
@@ -91,8 +93,10 @@ class Publisher:
             self._client.tls_set(
                 ca_certs = cacert, 
                 certfile = clientcert, 
-                keyfile  = clientkey
+                keyfile  = clientkey,
+                tls_version = ssl.PROTOCOL_TLSv1_1
                 )
+            self._client.tls_insecure_set(True)
         return self._client
 
     @client.setter
@@ -101,6 +105,9 @@ class Publisher:
 
     def __enter__(self): 
         config = self.config
+        #  "C:\Program Files\mosquitto\mosquitto_sub" -h 192.168.178.45 -V mqttv311 -p 8883 
+        # --cafile ca.crt --cert hub001.crt --key hub001.key -t "power/sensor/0013A20041629BFB/data"
+
         self.log.info(f"Connecting host={config.config_data['mqttserver']}, port={int(config.config_data['mqttport'])}")
         self.client.connect( host=config.config_data['mqttserver'], port=int(config.config_data['mqttport']), keepalive = 60)
         return self.client
