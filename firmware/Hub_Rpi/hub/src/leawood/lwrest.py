@@ -9,7 +9,7 @@ class Rest:
         self.log = config.getLogger("lwrest.Rest")
 
 
-    def get(self, resource, query):
+    def get(self, resource, query = None):
         ## Get the device details
         log = self.log
         config = self.config

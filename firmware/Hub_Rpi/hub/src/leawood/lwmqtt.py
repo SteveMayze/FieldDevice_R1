@@ -77,6 +77,7 @@ class Subscriber:
         userdata.log.info(f'Response: {response.status_code}')
         if response.status_code != 200:
             userdata.log.error(f' ERROR {response.text}')
+            raise()
 
     def set_on_connect_callback(self, on_connect):
         self.client.on_connect = on_connect

@@ -2,6 +2,7 @@
 from leawood.config import Config
 from leawood.xbee import Coordinator
 from leawood.xbee import Sensor
+from leawood.lwrest import Rest
 import os
 import leawood.xbee
 import time
@@ -66,36 +67,32 @@ class TestBasic:
     ##              - What information will you send i.e. Domain, Class, label, data type
     ##              - THe readings of the sensors and the values.
 
-    def test_coordinator_can_send_and_receive(self, coordinator, message_handler):
-        
-        # We need to start some sort of process to receive
-        # the messages.
+     # Then we need to check if the messages have been received.
 
-        # Sending the request like this means to send out for each 
-        # device in the list.
-        status = leawood.xbee.scan_network(coordinator)      
-        status = leawood.xbee.request_data(coordinator)
-        assert "OK" == status
-
-
-
-
-    # Then we need to check if the messages have been received.
-
-    def test_background_thread_is_running(self, coordinator, sensor, message_handler):
+    def test_coordinator_can_send_and_receive(self, coordinator, sensor, message_handler):
         coordinator.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
         coordinator.log.info('Waiting for startup')
         self.wait_for_runnning_state(coordinator, True)
+        leawood.lwmqtt.start_message_handler(message_handler)
 
         # Send a message from GREEN to be picked up and handled
         # by the coordinator RED. This message is then posted 
         # to the MQTT
         addr = str(coordinator.coordinating_device.get_64bit_addr())
         sensor.log.info(f'Sending a message to {addr}')
-        payload = json.loads(f'{{"bus-voltage": 10.0}}')
+        devices = coordinator.nodes
+        device = devices[0]
+        node_address = str(device["ADDRESS"])
+        payload = json.loads(f'{{"address":"{node_address}", "label": "bus-voltage","value": 10.0}}')
         status = leawood.xbee.send_data(sensor, str(addr), json.dumps(payload))
         assert "OK" == status
+
+
+        # rest = Rest(config)
+        # response = rest.get("devices", '{"name":{"$eq":"Mobile+Chook+shed"}}')
+        # device_id = response....
+        # respone = rest.get("data_points", '{"device_id":{"$eq":"{device_id}"}}')
 
 
         # The message is being posted to the MQTT ... this
@@ -115,7 +112,6 @@ class TestBasic:
         #             -V mqttv311 -p 8883 --cafile ca.crt --cert hub001.crt 
         #             --key hub001.key -t "power/sensor/0013A20041629BFB/data"
 
-        leawood.lwmqtt.start_message_handler(message_handler)
 
         
         
