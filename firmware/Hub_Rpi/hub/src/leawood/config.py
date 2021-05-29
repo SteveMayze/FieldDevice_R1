@@ -38,10 +38,18 @@ class Config:
 
 
     @property
-    def public_topic(self):
+    def subscribe_topic(self):
+        return self._subscribe_topic
+
+    @subscribe_topic.setter
+    def subscribe_topic(self, value):
+        self._subscribe_topic = value
+        
+    @property
+    def publish_topic(self):
         return self._publish_topic
 
-    @public_topic.setter
+    @publish_topic.setter
     def publish_topic(self, value):
         self._publish_topic = value
 

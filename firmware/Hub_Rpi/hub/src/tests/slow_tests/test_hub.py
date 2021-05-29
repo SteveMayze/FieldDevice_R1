@@ -66,7 +66,7 @@ class TestBasic:
     ##              - What information will you send i.e. Domain, Class, label, data type
     ##              - THe readings of the sensors and the values.
 
-    def test_coordinator_can_send_and_receive(self, coordinator):
+    def test_coordinator_can_send_and_receive(self, coordinator, message_handler):
         
         # We need to start some sort of process to receive
         # the messages.
@@ -82,7 +82,7 @@ class TestBasic:
 
     # Then we need to check if the messages have been received.
 
-    def test_background_thread_is_running(self, coordinator, sensor):
+    def test_background_thread_is_running(self, coordinator, sensor, message_handler):
         coordinator.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
         coordinator.log.info('Waiting for startup')
@@ -115,8 +115,12 @@ class TestBasic:
         #             -V mqttv311 -p 8883 --cafile ca.crt --cert hub001.crt 
         #             --key hub001.key -t "power/sensor/0013A20041629BFB/data"
 
-        ### This now constitues a tear down of the whole test.
+        leawood.lwmqtt.start_message_handler(message_handler)
 
+        
+        
+
+        ### This now constitues a tear down of the whole test.
         coordinator.log.info('Requesting the shutdown')
         leawood.xbee.shutdown(coordinator)
         coordinator.log.info('Waiting for shutdown')

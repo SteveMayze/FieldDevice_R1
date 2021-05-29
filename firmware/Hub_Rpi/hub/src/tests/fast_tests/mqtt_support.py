@@ -1,7 +1,8 @@
 
 
 
-from leawood.lwmqtt import Publisher
+from leawood.lwmqtt import Publisher, Subscriber
+import paho.mqtt.client as mqtt
 
 class FakePublisher(Publisher):
 
@@ -29,7 +30,31 @@ class FakePublisher(Publisher):
         self.publish_queue[topic].append(payload)
 
 
+class FakeSubscriber(Subscriber):
+    def __init__(self, config):
+        self._subscribe_queue = {}
+        self.config = config
+        self.log = config.getLogger('FakeSubscriber')
+
+    @property
+    def subscribe_queue(self):
+        return self._subscribe_queue
+
+    @subscribe_queue.setter
+    def subscribe_queue(self, value):
+        self._subscribe_queue = value
+
+    def set_on_connect_callback(self, on_connect):
+        pass
+
+    def set_on_subscribe_callback(self, on_subscribe):
+        pass
+    
+    def set_on_message_callback(self, on_message):
+        pass
 
 
+    def start(self):
+        pass
 
-
+    

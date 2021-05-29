@@ -1,5 +1,6 @@
 
 from leawood.lwmqtt import Publisher
+from leawood.lwmqtt import Subscriber
 import pytest
 from leawood.config import Config
 from leawood.xbee import Coordinator
@@ -47,3 +48,8 @@ def sensor(sensor_config):
     yield sensor
     sensor.close()
 
+@pytest.fixture
+def message_handler(coord_config):
+    message_handler = Subscriber(coord_config)
+    yield message_handler
+    message_handler.close()

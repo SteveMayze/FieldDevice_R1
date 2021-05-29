@@ -97,3 +97,8 @@ class TestCase:
 
         ## Assert that the message was sent to the MQTT broker.
         assert coordinator.config.publish_topic in coordinator.publisher.publish_queue
+
+    def test_message_handler(self, config):
+        subscriber = tests.fast_tests.mqtt_support.FakeSubscriber(config)
+        status = leawood.lwmqtt.start_message_handler(subscriber)
+        assert status == "OK"
