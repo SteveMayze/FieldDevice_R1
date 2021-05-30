@@ -7,13 +7,24 @@ import os
 import leawood.xbee
 import time
 import json
-
+import logging
+import random
 import tests.slow_tests.conftest
 
 MAX_WAIT = 30
 
 
 class TestBasic:
+
+
+    @property
+    def log(self):
+        return self._log
+
+    @log.setter
+    def log(self, value):
+        self._log = value
+
 
 
     def wait_for_runnning_state(self, coordinator, state):
@@ -70,9 +81,11 @@ class TestBasic:
      # Then we need to check if the messages have been received.
 
     def test_coordinator_can_send_and_receive(self, coordinator, sensor, message_handler):
-        coordinator.log.info('Activating the listener')
+        self._log = logging.getLogger('test_hub.TestBasic')
+
+        self.log.info('Activating the listener')
         leawood.xbee.activate(coordinator)
-        coordinator.log.info('Waiting for startup')
+        self.log.info('Waiting for startup')
         self.wait_for_runnning_state(coordinator, True)
         leawood.lwmqtt.start_message_handler(message_handler)
 
@@ -80,19 +93,27 @@ class TestBasic:
         # by the coordinator RED. This message is then posted 
         # to the MQTT
         addr = str(coordinator.coordinating_device.get_64bit_addr())
-        sensor.log.info(f'Sending a message to {addr}')
+        self.log.info(f'Sending a message to {addr}')
         devices = coordinator.nodes
         device = devices[0]
         node_address = str(device["ADDRESS"])
-        payload = json.loads(f'{{"address":"{node_address}", "label": "bus-voltage","value": 10.0}}')
+
+        test_value = random.randrange(9000, 15000) / 1000
+        payload = json.loads(f'{{"address":"{node_address}", "label": "bus-voltage","value": {test_value}}}')
         status = leawood.xbee.send_data(sensor, str(addr), json.dumps(payload))
         assert "OK" == status
 
+        # Use the REST API to pull back down the last posted message and compare the
+        # random generated value with what has been posted.
+        rest = Rest(coordinator.config)
+        response = rest.get("devices", '{"name":"Mobile+Chook+shed"}')
+        device_id = response["device_id"]
+        self.log.info(f'Found the Mobile chook shed: {device_id}')
+        response = rest.get("data_points", f'{{"device_id": "{device_id}", "$orderby":{{"POINT_TIMESTAMP":"DESC"}}}}')
+        self.log.info(f'Last device data: {response}')
+        assert response["point_value"] == test_value
 
-        # rest = Rest(config)
-        # response = rest.get("devices", '{"name":{"$eq":"Mobile+Chook+shed"}}')
-        # device_id = response....
-        # respone = rest.get("data_points", '{"device_id":{"$eq":"{device_id}"}}')
+
 
 
         # The message is being posted to the MQTT ... this
@@ -107,7 +128,7 @@ class TestBasic:
         # -v  --log-cli-level=NOTSET -s
 
         # Make sure the XBee units are running as is the MQTT server
-        # Verificatio is only made using a manual subscriber
+        # Verification is only made using a manual subscriber
         #  "C:\Program Files\mosquitto\mosquitto_sub" -h 192.168.178.45 
         #             -V mqttv311 -p 8883 --cafile ca.crt --cert hub001.crt 
         #             --key hub001.key -t "power/sensor/0013A20041629BFB/data"

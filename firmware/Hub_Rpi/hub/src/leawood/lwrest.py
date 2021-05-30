@@ -14,7 +14,7 @@ class Rest:
         log = self.log
         config = self.config
         payload={}
-        base_url = self.config_data['rest']
+        base_url = config.config_data['rest']
         headers = { f'Authorization': 'Basic {url_auth}'}
         if not query:
             url = f'{base_url}/{resource}'
@@ -22,6 +22,7 @@ class Rest:
             url = f'{base_url}/{resource}?q={query}'
         log.info (f'GET {url}\n  query: {query}')
         response =  requests.request("GET", url, headers=headers, data=payload, timeout=30, auth=HTTPBasicAuth(config.config_data['username'], config.config_data['password']))
+        log.info(f"response: {response.json()['items'][0]}")
         return response.json()['items'][0]
 
     def post(self, resource, payload):
