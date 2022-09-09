@@ -1,0 +1,1270 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"curr",
+				"current_tab"
+			],
+			[
+				"assert",
+				"assertTemplateUsed"
+			],
+			[
+				"mock",
+				"mock_render"
+			],
+			[
+				"ass",
+				"assertContains"
+			],
+			[
+				"name",
+				"name_generator"
+			],
+			[
+				"create",
+				"create_user"
+			],
+			[
+				"cont",
+				"context_dict"
+			],
+			[
+				"conte",
+				"context_dict"
+			],
+			[
+				"con",
+				"context_dict"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"on",
+				"oni_list_page"
+			],
+			[
+				"share",
+				"share_list"
+			],
+			[
+				"f",
+				"find_element_by_id"
+			],
+			[
+				"edi",
+				"edith_browser"
+			],
+			[
+				"get",
+				"get_shared_with_list"
+			],
+			[
+				"find",
+				"find_elements_by_css_selector"
+			],
+			[
+				"fin",
+				"find_elements_by_css_selector"
+			],
+			[
+				"new",
+				"new_list"
+			],
+			[
+				"is_",
+				"is_authenticated"
+			],
+			[
+				"moc",
+				"mock_form"
+			],
+			[
+				"mo",
+				"mock_form"
+			],
+			[
+				"mock_",
+				"mock_redirect"
+			],
+			[
+				"first",
+				"first_item_text"
+			],
+			[
+				"list",
+				"list_"
+			],
+			[
+				"return",
+				"return_value"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"col-",
+				"col-md-offset-3"
+			],
+			[
+				"col",
+				"col-md-12"
+			],
+			[
+				"wiatfor",
+				"wait_for_row_in_list_table"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"li",
+				"live_server_url"
+			],
+			[
+				"env",
+				"env_vars"
+			],
+			[
+				"_get",
+				"_get_server_evn_vars"
+			],
+			[
+				"host",
+				"host_string"
+			],
+			[
+				"manage",
+				"manage_dot_py"
+			],
+			[
+				"man",
+				"manage_dot_py"
+			],
+			[
+				"session",
+				"session_key"
+			],
+			[
+				"wait",
+				"wait_for_email"
+			],
+			[
+				"w",
+				"wait"
+			],
+			[
+				"nav",
+				"navbar-right"
+			],
+			[
+				"log",
+				"login"
+			],
+			[
+				"message",
+				"message_body"
+			],
+			[
+				"auth",
+				"authenticate"
+			],
+			[
+				"EMIAL",
+				"EMAIL_HOST_PASSWORD"
+			],
+			[
+				"En",
+				"ENTER"
+			],
+			[
+				"for",
+				"for_list"
+			],
+			[
+				"lis",
+				"list_"
+			],
+			[
+				"Existin",
+				"ExistingListItemForm"
+			],
+			[
+				"va",
+				"ValidationError"
+			],
+			[
+				"asse",
+				"assertEqual"
+			],
+			[
+				"asser",
+				"assertFalse"
+			],
+			[
+				"ex",
+				"expected_error"
+			],
+			[
+				"as",
+				"assertRaises"
+			],
+			[
+				"wa",
+				"wait_for_row_in_list_table"
+			],
+			[
+				"Item",
+				"ItemForm"
+			],
+			[
+				"wia",
+				"wait_for_row_in_list_table"
+			],
+			[
+				"SE",
+				"SECRET_KEY"
+			],
+			[
+				"met",
+				"meta\tTag"
+			],
+			[
+				"input",
+				"inputbox"
+			],
+			[
+				"se",
+				"self"
+			],
+			[
+				"item",
+				"item_text"
+			],
+			[
+				"fis",
+				"fist_saved_item"
+			],
+			[
+				"saved",
+				"saved_list"
+			],
+			[
+				"fist",
+				"first_item"
+			],
+			[
+				"the",
+				"the-only-list-in-the-world"
+			],
+			[
+				"fra",
+				"Francis_list_url"
+			],
+			[
+				"we",
+				"webdriver"
+			],
+			[
+				"in",
+				"inputbox"
+			],
+			[
+				"i",
+				"item_text"
+			],
+			[
+				"fi",
+				"fist_saved_item"
+			],
+			[
+				"sav",
+				"saved_items"
+			],
+			[
+				"chec",
+				"check_for_row_in_list_table"
+			],
+			[
+				"head",
+				"header_text"
+			],
+			[
+				"project",
+				"project_name"
+			],
+			[
+				"gerber",
+				"gerbersDir"
+			],
+			[
+				"Get",
+				"GetOutputDirectory"
+			],
+			[
+				"gerb",
+				"gerbersDir"
+			],
+			[
+				"ger",
+				"gerbersDir"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1724,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\nMC"
+					},
+					"AwAAAL8AAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAADBAAAAAAAAAAAAAADBAAAAAAAAAMIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvwAAAAAAAAC/AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "U"
+					},
+					"AQAAAMIAAAAAAAAAwwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwgAAAAAAAADCAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " CIO"
+					},
+					"BAAAAMMAAAAAAAAAxAAAAAAAAAAAAAAAxAAAAAAAAADFAAAAAAAAAAAAAADFAAAAAAAAAMYAAAAAAAAAAAAAAMYAAAAAAAAAxwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwwAAAAAAAADDAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					2,
+					"left_delete",
+					null,
+					"AgAAAMYAAAAAAAAAxgAAAAAAAAABAAAAT8UAAAAAAAAAxQAAAAAAAAABAAAASQ",
+					"AQAAAAAAAAABAAAAxwAAAAAAAADHAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "onnectio"
+					},
+					"CAAAAMUAAAAAAAAAxgAAAAAAAAAAAAAAxgAAAAAAAADHAAAAAAAAAAAAAADHAAAAAAAAAMgAAAAAAAAAAAAAAMgAAAAAAAAAyQAAAAAAAAAAAAAAyQAAAAAAAADKAAAAAAAAAAAAAADKAAAAAAAAAMsAAAAAAAAAAAAAAMsAAAAAAAAAzAAAAAAAAAAAAAAAzAAAAAAAAADNAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAxQAAAAAAAADFAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "ns"
+					},
+					"AgAAAM0AAAAAAAAAzgAAAAAAAAAAAAAAzgAAAAAAAADPAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzQAAAAAAAADNAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAM8AAAAAAAAA0AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzwAAAAAAAADPAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": "~##"
+					},
+					"AwAAAMAAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADCAAAAAAAAAAAAAADCAAAAAAAAAMMAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAAAAAAAAADAAAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					14,
+					3,
+					"left_delete",
+					null,
+					"AwAAAMIAAAAAAAAAwgAAAAAAAAABAAAAI8EAAAAAAAAAwQAAAAAAAAABAAAAI8AAAAAAAAAAwAAAAAAAAAABAAAAfg",
+					"AQAAAAAAAAABAAAAwwAAAAAAAADDAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "##"
+					},
+					"AgAAAMAAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADCAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAAAAAAAAADAAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAMIAAAAAAAAAwwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwgAAAAAAAADCAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "PB0"
+					},
+					"AwAAANMAAAAAAAAA1AAAAAAAAAAAAAAA1AAAAAAAAADVAAAAAAAAAAAAAADVAAAAAAAAANYAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0wAAAAAAAADTAAAAAAAAAAAAAAAAADpA"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "\nPB"
+					},
+					"AwAAANYAAAAAAAAA1wAAAAAAAAAAAAAA1wAAAAAAAADYAAAAAAAAAAAAAADYAAAAAAAAANkAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1gAAAAAAAADWAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AQAAANkAAAAAAAAA2gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2QAAAAAAAADZAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAANoAAAAAAAAA2wAAAAAAAAAAAAAA2wAAAAAAAADcAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2gAAAAAAAADaAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": "PB2"
+					},
+					"AwAAANwAAAAAAAAA3QAAAAAAAAAAAAAA3QAAAAAAAADeAAAAAAAAAAAAAADeAAAAAAAAAN8AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3AAAAAAAAADcAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": "\nPB3"
+					},
+					"BAAAAN8AAAAAAAAA4AAAAAAAAAAAAAAA4AAAAAAAAADhAAAAAAAAAAAAAADhAAAAAAAAAOIAAAAAAAAAAAAAAOIAAAAAAAAA4wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3wAAAAAAAADfAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAOMAAAAAAAAA5AAAAAAAAAAAAAAA5AAAAAAAAADlAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4wAAAAAAAADjAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "PB4"
+					},
+					"AwAAAOUAAAAAAAAA5gAAAAAAAAAAAAAA5gAAAAAAAADnAAAAAAAAAAAAAADnAAAAAAAAAOgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5QAAAAAAAADlAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAOgAAAAAAAAA6QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6AAAAAAAAADoAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": "\nPB"
+					},
+					"AwAAAOkAAAAAAAAA6gAAAAAAAAAAAAAA6gAAAAAAAADrAAAAAAAAAAAAAADrAAAAAAAAAOwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6QAAAAAAAADpAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "5"
+					},
+					"AQAAAOwAAAAAAAAA7QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7AAAAAAAAADsAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "\nPB"
+					},
+					"AwAAAO0AAAAAAAAA7gAAAAAAAAAAAAAA7gAAAAAAAADvAAAAAAAAAAAAAADvAAAAAAAAAPAAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7QAAAAAAAADtAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"left_delete",
+					null,
+					"AQAAAO8AAAAAAAAA7wAAAAAAAAABAAAAQg",
+					"AQAAAAAAAAABAAAA8AAAAAAAAADwAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "A6"
+					},
+					"AgAAAO8AAAAAAAAA8AAAAAAAAAAAAAAA8AAAAAAAAADxAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7wAAAAAAAADvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAPEAAAAAAAAA8gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA8QAAAAAAAADxAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": " |"
+					},
+					"AgAAANYAAAAAAAAA1wAAAAAAAAAAAAAA1wAAAAAAAADYAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1gAAAAAAAADWAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANgAAAAAAAAA2QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AAAAAAAAADYAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					1,
+					"insert",
+					{
+						"characters": "SCL"
+					},
+					"AwAAANkAAAAAAAAA2gAAAAAAAAAAAAAA2gAAAAAAAADbAAAAAAAAAAAAAADbAAAAAAAAANwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2QAAAAAAAADZAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					44,
+					1,
+					"insert",
+					{
+						"characters": " |"
+					},
+					"AgAAAOAAAAAAAAAA4QAAAAAAAAAAAAAA4QAAAAAAAADiAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4AAAAAAAAADgAAAAAAAAAAAAAAAAwFNA"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAOIAAAAAAAAA4wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4gAAAAAAAADiAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					46,
+					1,
+					"insert",
+					{
+						"characters": "SDA"
+					},
+					"AwAAAOMAAAAAAAAA5AAAAAAAAAAAAAAA5AAAAAAAAADlAAAAAAAAAAAAAADlAAAAAAAAAOYAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4wAAAAAAAADjAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": " |"
+					},
+					"AgAAAOsAAAAAAAAA7AAAAAAAAAAAAAAA7AAAAAAAAADtAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6wAAAAAAAADrAAAAAAAAAAAAAAAAwFNA"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAO0AAAAAAAAA7gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7QAAAAAAAADtAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					54,
+					1,
+					"paste",
+					null,
+					"AQAAAPIAAAAAAAAA9QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA8gAAAAAAAADyAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					56,
+					1,
+					"paste",
+					null,
+					"AQAAAPoAAAAAAAAA/QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+gAAAAAAAAD6AAAAAAAAAAAAAAAAgEpA"
+				],
+				[
+					58,
+					1,
+					"paste",
+					null,
+					"AQAAAAIBAAAAAAAABQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAgEAAAAAAAACAQAAAAAAAAAAAAAAgEpA"
+				],
+				[
+					60,
+					1,
+					"paste",
+					null,
+					"AQAAAAkBAAAAAAAADAEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQEAAAAAAAAJAQAAAAAAAAAAAAAAgEpA"
+				],
+				[
+					62,
+					1,
+					"insert",
+					{
+						"characters": "TD"
+					},
+					"AgAAAO4AAAAAAAAA7wAAAAAAAAAAAAAA7wAAAAAAAADwAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7gAAAAAAAADuAAAAAAAAAAAAAAAAgEpA"
+				],
+				[
+					63,
+					1,
+					"left_delete",
+					null,
+					"AQAAAO8AAAAAAAAA7wAAAAAAAAABAAAARA",
+					"AQAAAAAAAAABAAAA8AAAAAAAAADwAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					1,
+					"insert",
+					{
+						"characters": "XD"
+					},
+					"AgAAAO8AAAAAAAAA8AAAAAAAAAAAAAAA8AAAAAAAAADxAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7wAAAAAAAADvAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert",
+					{
+						"characters": "RXD"
+					},
+					"AwAAAPgAAAAAAAAA+QAAAAAAAAAAAAAA+QAAAAAAAAD6AAAAAAAAAAAAAAD6AAAAAAAAAPsAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+AAAAAAAAAD4AAAAAAAAAAAAAAAAwFNA"
+				],
+				[
+					69,
+					1,
+					"insert",
+					{
+						"characters": "LED"
+					},
+					"AwAAAAMBAAAAAAAABAEAAAAAAAAAAAAABAEAAAAAAAAFAQAAAAAAAAAAAAAFAQAAAAAAAAYBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAwEAAAAAAAADAQAAAAAAAAAAAAAAwFNA"
+				],
+				[
+					71,
+					1,
+					"insert",
+					{
+						"characters": "SW300"
+					},
+					"BQAAAA4BAAAAAAAADwEAAAAAAAAAAAAADwEAAAAAAAAQAQAAAAAAAAAAAAAQAQAAAAAAABEBAAAAAAAAAAAAABEBAAAAAAAAEgEAAAAAAAAAAAAAEgEAAAAAAAATAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADgEAAAAAAAAOAQAAAAAAAAAAAAAAwFNA"
+				],
+				[
+					73,
+					1,
+					"insert",
+					{
+						"characters": "SW1"
+					},
+					"AwAAABoBAAAAAAAAGwEAAAAAAAAAAAAAGwEAAAAAAAAcAQAAAAAAAAAAAAAcAQAAAAAAAB0BAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAQFhA"
+				],
+				[
+					76,
+					1,
+					"paste",
+					null,
+					"AQAAANwAAAAAAAAA3wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3AAAAAAAAADcAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					81,
+					1,
+					"paste",
+					null,
+					"AQAAAOkAAAAAAAAA7AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA6QAAAAAAAADpAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					84,
+					1,
+					"paste",
+					null,
+					"AQAAAPcAAAAAAAAA+gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9wAAAAAAAAD3AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					87,
+					1,
+					"paste",
+					null,
+					"AQAAAAQBAAAAAAAABwEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAABAEAAAAAAAAEAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					90,
+					1,
+					"paste",
+					null,
+					"AQAAABIBAAAAAAAAFQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEgEAAAAAAAASAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					93,
+					1,
+					"paste",
+					null,
+					"AQAAACIBAAAAAAAAJQEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIgEAAAAAAAAiAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					98,
+					1,
+					"paste",
+					null,
+					"AQAAAC8BAAAAAAAAMgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALwEAAAAAAAAvAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					101,
+					1,
+					"insert",
+					{
+						"characters": "\nGP"
+					},
+					"AwAAANIAAAAAAAAA0wAAAAAAAAAAAAAA0wAAAAAAAADUAAAAAAAAAAAAAADUAAAAAAAAANUAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0gAAAAAAAADSAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					102,
+					1,
+					"insert",
+					{
+						"characters": "IO"
+					},
+					"AgAAANUAAAAAAAAA1gAAAAAAAAAAAAAA1gAAAAAAAADXAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1QAAAAAAAADVAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					103,
+					1,
+					"paste",
+					null,
+					"AQAAANcAAAAAAAAA2gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1wAAAAAAAADXAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					104,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANoAAAAAAAAA2wAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2gAAAAAAAADaAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					105,
+					1,
+					"insert",
+					{
+						"characters": "LABEL"
+					},
+					"BQAAANsAAAAAAAAA3AAAAAAAAAAAAAAA3AAAAAAAAADdAAAAAAAAAAAAAADdAAAAAAAAAN4AAAAAAAAAAAAAAN4AAAAAAAAA3wAAAAAAAAAAAAAA3wAAAAAAAADgAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2wAAAAAAAADbAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					106,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAOAAAAAAAAAA4QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4AAAAAAAAADgAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					107,
+					1,
+					"paste",
+					null,
+					"AQAAAOEAAAAAAAAA5AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA4QAAAAAAAADhAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					108,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAOQAAAAAAAAA5QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5AAAAAAAAADkAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					109,
+					1,
+					"left_delete",
+					null,
+					"AQAAAOQAAAAAAAAA5AAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA5QAAAAAAAADlAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					110,
+					1,
+					"insert",
+					{
+						"characters": "DESCRIPTION"
+					},
+					"CwAAAOQAAAAAAAAA5QAAAAAAAAAAAAAA5QAAAAAAAADmAAAAAAAAAAAAAADmAAAAAAAAAOcAAAAAAAAAAAAAAOcAAAAAAAAA6AAAAAAAAAAAAAAA6AAAAAAAAADpAAAAAAAAAAAAAADpAAAAAAAAAOoAAAAAAAAAAAAAAOoAAAAAAAAA6wAAAAAAAAAAAAAA6wAAAAAAAADsAAAAAAAAAAAAAADsAAAAAAAAAO0AAAAAAAAAAAAAAO0AAAAAAAAA7gAAAAAAAAAAAAAA7gAAAAAAAADvAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5AAAAAAAAADkAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 170.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"json",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"inden",
+				"Indent XML"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"indent",
+				"Indent XML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/pcbs/Leawood/FieldDevice_R3",
+		"/D/pcbs/Leawood/FieldDevice_R3/firmware",
+		"/D/pcbs/Leawood/FieldDevice_R3/firmware/Hub_Rpi"
+	],
+	"file_history":
+	[
+		"/D/pcbs/AdventSternla/pcb/EightChannel/FiveChannel.kicad_pro",
+		"/D/pcbs/coaxTester/doc/XBee/DigitalPins_Message_List.xml",
+		"/D/pcbs/coaxTester/doc/XBee/api_console_session_2022-03-08.log",
+		"/D/pcbs/coaxTester/doc/XBee/Messages.txt",
+		"/D/Dropbox/MaxiMite/XBee/XBee_Modem_04.bas",
+		"/D/Dropbox/MaxiMite/XBee/XBee_Modem_03.bas",
+		"/D/Dropbox/MaxiMite/BAS files/serial.bas",
+		"/D/Download/Frtzing/fontsandtemplates/FontsAndTemplates/Templates/BreadboardViewGraphic_Template.svg",
+		"/D/pcbs/LED_Chain/Fritzing/motorDriver-schematic_plain_fz.svg",
+		"/D/Dropbox/MaxiMite/BAS files/my program.bas",
+		"/D/pcbs/LED_Chain/Fritzing/motorDriver-breadboard_plain_fz.svg",
+		"/D/pcbs/LED_Chain/Fritzing/motorDriver-PCB-frtz.svg",
+		"/D/Dropbox/MaxiMite/BAS files/welcome.bas",
+		"/D/Dropbox/MaxiMite/BAS files/myprog.BAS",
+		"/F/Firmware and MMbasic/BAS files/myprog.BAS",
+		"/D/Dropbox/MaxiMite/BAS files/Hello world.BAS",
+		"/D/Dropbox/MaxiMite/BAS files/shift_resgister_16bit_test.bas",
+		"/D/Dropbox/MaxiMite/BAS files/shift_resgister_test.bas",
+		"/D/pcbs/LED_Chain/Fritzing/Fzz/part.GOGOGO_3b115016be6d443268d0ccb0e9f3abd5_1.fzp",
+		"/D/pcbs/LED_Chain/Fritzing/Fzz/svg.breadboard.GOGOGO_a974fdbd815a6b6c6d82ecb605368154_7_breadboard.svg",
+		"/D/pcbs/LED_Chain/Fritzing/Fzz/Teensy Gogogo Connection.fz",
+		"/D/pcbs/LED_Chain/Fritzing/motorDriver-brd-frtz.svg",
+		"/D/pcbs/ttm_presentation/lib/ttm.pretty/c3po_EdgeCut_x.kicad_mod",
+		"/D/pcbs/ttm_presentation/lib/ttm.pretty/c3po_EdgeCut.kicad_mod",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-01_20-18-27.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output-500mA-Steps.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-04_06-44-11.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-04_06-44-41.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_Readings_10mA.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output-500mA-Steps_2.log",
+		"/D/pcbs/Leawood/Doc/generated/sensor-response.json",
+		"/D/Dropbox/Documents/INA219/POC/Fritzing/CurrentSinkOrSwim-brd.svg",
+		"/D/Dropbox/Documents/INA219/POC/Meter.svg",
+		"/D/Dropbox/Documents/INA219/POC/Fritzing/CurrentSinkOrSwim-brd_20200927.svg",
+		"/D/pcbs/CurrentSinkOrSwim/CurrentSinkOrSwim.kicad_pcb",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-11_17-17-00.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-01_20-17-48.log",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/output_2020-09-01_20-16-14.log",
+		"/C/Users/Steven/Documents/led_driver_snippet.c",
+		"/D/pcbs/is31fl3736_dev/Doc/IIC Test Messages",
+		"/D/pcbs/Leawood/Doc/generated/sensor-temperature.xsd",
+		"/D/pcbs/Leawood/Doc/generated/sensor-response.xsd",
+		"/D/pcbs/Leawood/Doc/generated/temperature-response.xsd",
+		"/D/pcbs/GoldCap/XBee/api_console_session_2020-03-17_LED.log",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.user-ca-bundle",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/D/MPLABXProjects/ATTiny3217_001.X/.gitignore",
+		"/D/pcbs/attiny3217_internal_temp/.gitignore",
+		"/D/Dropbox/Documents/INA219/POC/Fritzing/CurrentSinkOrSwim-brd_f.svg",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/ina219-Readings.csv",
+		"/D/pcbs/Leawood/FieldDevice_R2/doc/ina219-Readings_exp.csv",
+		"/D/EA/Leawood/Doc/Generated/debug.log",
+		"/D/pcbs/Leawood/Leawood-MW/devices/views.py",
+		"/D/pcbs/Leawood/Leawood-MW/dashboard/templates/pagination.html",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templates/devices/devices.html",
+		"/D/pcbs/GoldCap/XBee/Experiment_2_Rcv_Session.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_5_Rcv_Session_a.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_6_Session_a.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_7_Session_a.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_10_Session_a.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_14_Session.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_10_Session.yaml",
+		"/D/pcbs/GoldCap/XBee/Experiment_18_Session.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_20_Session.xml",
+		"/D/pcbs/GoldCap/XBee/Experiment_19_Session.xml",
+		"/D/pcbs/GoldCap/XBee/Experiment_19b_Session.xml",
+		"/D/pcbs/GoldCap/XBee/Experiment_19_Session.log",
+		"/D/pcbs/GoldCap/XBee/Experiment_2_Rcv_Session_b.log",
+		"/D/pcbs/Leawood/Leawood-MW/devices/tests/test_views.py",
+		"/D/pcbs/Leawood/Leawood-MW/dashboard/tests/common.py",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/__init__.py",
+		"/D/pcbs/GoldCap/doc/ATmega4809_Xplained_Pro_release_rev8.stp",
+		"/D/pcbs/GoldCap/doc/ATmega4809_Xplained_Pro_bradboard.FCStd",
+		"/D/pcbs/Leawood/Leawood-MW/Leawood/settings.py",
+		"/D/pcbs/Leawood/Leawood-MW/dashboard/templates/searchpanel.html",
+		"/D/pcbs/Leawood/Leawood-MW/virtualenv/Lib/site-packages/django/template/library.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templatetags/common.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templatetags/__init__.py",
+		"/D/pcbs/Leawood/Leawood-MW/virtualenv/Lib/site-packages/django/test/client.py",
+		"/D/pcbs/Leawood/Leawood-MW/virtualenv/Lib/site-packages/django/core/handlers/base.py",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/views.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templates/devices/pending.html",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templates/devices/active.html",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/templates/device/device_scan.htm",
+		"/D/pcbs/Leawood/Leawood-MW/functional_tests/test_devices.py",
+		"/D/pcbs/Leawood/Leawood-MW/functional_tests/base.py",
+		"/D/pcbs/Leawood/Leawood-MW/accounts/views.py",
+		"/D/pcbs/Leawood/Leawood-MW/dashboard/templates/dashboard/dashboard.html",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/templates/device/list.htm",
+		"/D/pcbs/Leawood/Leawood-MW/devices/tests/test_models.py",
+		"/D/python/python-tdd-book/lists/tests/test_views.py",
+		"/D/pcbs/Leawood/Leawood-MW/functional_tests/tests.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/models.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/urls.py",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/templates/device/device.htm",
+		"/D/python/python-tdd-book/functional_tests/base.py",
+		"/D/python/python-tdd-book/functional_tests/management/commands/create_session.py",
+		"/D/python/python-tdd-book/functional_tests/server_tools.py",
+		"/D/python/python-tdd-book/functional_tests/test_my_lists.py",
+		"/D/pcbs/Leawood/Leawood-MW/devices/templates/devices/searchpanel.html",
+		"/D/pcbs/Leawood/Leawood-MW/dashboard/templates/base.html",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/templates/device/active.html",
+		"/D/pcbs/Leawood/Leawood-Django/Leawood/device/templates/device/detail.htm",
+		"/D/pcbs/Leawood/Leawood-MW/README.md",
+		"/D/pcbs/Leawood/Leawood-MW/Leawood/urls.py",
+		"/D/python/python-tdd-book/functional_tests/test_sharing.py",
+		"/D/python/python-tdd-book/functional_tests/my_lists_page.py",
+		"/D/python/python-tdd-book/functional_tests/list_page.py",
+		"/D/python/python-tdd-book/lists/templates/list.html",
+		"/D/python/python-tdd-book/lists/templates/base.html",
+		"/D/python/python-tdd-book/functional_tests/test_simple_list_creation.py",
+		"/D/python/python-tdd-book/lists/tests/test_models.py",
+		"/D/python/python-tdd-book/lists/models.py",
+		"/D/python/python-tdd-book/lists/templates/my_lists.html",
+		"/D/python/python-tdd-book/lists/views.py",
+		"/D/python/python-tdd-book/functional_tests/test_layout_and_styling.py",
+		"/D/python/python-tdd-book/functional_tests/test_list_item_validation.py",
+		"/D/python/python-tdd-book/lists/urls.py",
+		"/D/python/python-tdd-book/lists/tests/test_forms.py",
+		"/D/python/python-tdd-book/.gitignore",
+		"/D/python/python-tdd-book/lists/forms.py",
+		"/D/python/python-tdd-book/lists/static/list.js",
+		"/D/python/python-tdd-book/virtualenv/Lib/site-packages/django/forms/formsets.py",
+		"/D/python/python-tdd-book/accounts/authentication.py",
+		"/D/python/python-tdd-book/functional_tests/test_login.py",
+		"/D/python/python-tdd-book/superlists/settings.py",
+		"/D/python/python-tdd-book/deploy_tools/fabfile.py"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 107.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 138.0
+	},
+	"pinned_build_system": "",
+	"project": "/C/Users/Steven/Downloads/FieldDevice_R3.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\python\\python-tdd-book\\Python-TDD0Book.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 412.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

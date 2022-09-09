@@ -7,6 +7,19 @@ A field sensor is a a remote sensor that is envisaged for a larger network of se
 * Power Monitoring: INA219
 * Telemetry: XBee/ZigBee
 
+## MCU Connections
+
+| GPIO | LABEL | DESCRIPTION
+|------|-------|-------------|
+| PB0 | SCL | |
+| PB1 | SDA | |
+| PB2 | TXD | Connects to the Data IN on the XBee |
+| PB3 | RXD | Connects to the Data OUT on the XBee |
+| PB4 | LED | Indicator LED |
+| PB5 | SW300 | |
+| PA6 | SW1 | |
+
+
 XBee/ZigBee is considered for support and simplicity of use and will be included as a module connector and not implemented in-system.
 
 # Running the Tests

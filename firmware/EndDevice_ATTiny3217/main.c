@@ -109,21 +109,11 @@ int main(void) {
             reading_count++;
             readings = INA219_getReadings();
 
-//            if ( reading_count == 1 ) {
-//                printf("reading, timestamp, Vshunt-raw, Vshunt, Vbus-raw, Vbus, current-raw, current, power-raw, power\r\n");
-//            }
-            
             splitFloat(vshunt, readings.shunt_voltage);
             splitFloat(vbus, readings.bus_voltage);
             splitFloat(current, readings.current);
             splitFloat(power, readings.power);
-//            printf("%d, %d, 0x%04x, %d.%03d, 0x%04x, %d.%03d, 0x%04x, %d.%03d, 0x%04x, %d.%03d\r\n", 
-//                    reading_count, timestamp,
-//                    readings.raw_shunt_voltage, vshunt[0], vshunt[1],
-//                    readings.raw_bus_voltage, vbus[0], vbus[1],
-//                    readings.raw_current, current[0], current[1],
-//                    readings.raw_power, power[0], power[1]
-//                );
+
             ClrDisplay();
             SetPostion(LINE1);
             sprintf(msg, "Count: %u", reading_count);
